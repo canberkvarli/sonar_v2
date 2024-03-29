@@ -79,6 +79,6 @@ test:
 #
 production:
   <<: *default
-  database: sonar_v2_production
-  username: sonar_v2
-  password: <%= ENV["SONAR_V2_DATABASE_PASSWORD"] %>
+  database: sonar_production
+  username: sonar
+  password: <%= ENV['SONAR_DATABASE_PASSWORD'] %>
