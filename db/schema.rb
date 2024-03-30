@@ -10,9 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-# rubocop:disable Style/StringLiterals
-# rubocop:disable Metrics/BlockLength
-# rubocop:disable Style/NumericLiterals
 ActiveRecord::Schema[7.1].define(version: 2024_03_30_005927) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +31,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_30_005927) do
     t.string "string"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index %w[artist_id title], name: "index_tracks_on_artist_id_and_title"
+    t.index ["artist_id", "title"], name: "index_tracks_on_artist_id_and_title"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,6 +47,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_30_005927) do
     t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index %w[username artist_name], name: "index_users_on_username_and_artist_name"
+    t.index ["username", "artist_name"], name: "index_users_on_username_and_artist_name"
   end
+
 end
