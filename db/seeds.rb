@@ -1,5 +1,5 @@
-require 'aws-sdk-s3'
-require 'faker'
+# rubocop:disable Lint/MissingCopEnableDirective
+# rubocop:disable Security/Open
 
 puts 'Cleaning...Seeding...'
 
@@ -7,7 +7,7 @@ puts 'Cleaning...Seeding...'
 # Track.destroy_all
 # Like.destroy_all
 
-puts '🧘🧘👨‍💼 Creating users...'
+puts '🧘 Creating users...'
 
 12.times do
   User.create!({
@@ -86,36 +86,27 @@ track_titles = [
   'Tataki'
 ]
 
-# Create tracks in a loop
 track_titles.each_with_index do |title, i|
   # Select a random user who is an artist
   artist = User.where.not(artist_name: nil).order('RANDOM()').first
 
-  if artist
-    # Create the track with the selected artist's id
-    debugger
-    track = Track.new(
-      title:,
-      artist_id: artist.id,
-      description: Faker::Lorem.sentence
-    )
+  next unless artist
 
-    # Attach photo
-    photo_file = URI.open(photo_urls[i])
-    track.photo.attach(io: photo_file, filename: "photo_#{i + 1}.jpeg")
+  # Create the track with the selected artist's id
+  track = Track.new(
+    title:,
+    artist_id: artist.id,
+    description: Faker::Lorem.sentence
+  )
+  puts "Track #{title} created!"
 
-    # Attach audio
-    audio_file = URI.open(audio_urls[i])
-    track.audio.attach(io: audio_file, filename: "audio_#{i + 1}.mp3")
+  # Attach photo
+  photo_file = URI.open(photo_urls[i])
+  track.photo.attach(io: photo_file, filename: "photo_#{i + 1}.jpeg")
 
-    if track.save
-      puts "Track '#{title}' created successfully."
-    else
-      puts "Failed to create track '#{title}'. Errors: #{track.errors.full_messages.join(', ')}"
-    end
-  else
-    puts 'No user with artist_name found.'
-  end
+  # Attach audio
+  audio_file = URI.open(audio_urls[i])
+  track.audio.attach(io: audio_file, filename: "audio_#{i + 1}.mp3")
+
+  track.save
 end
-
-puts 'Tracks created'

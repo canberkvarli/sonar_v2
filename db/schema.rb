@@ -10,44 +10,78 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_30_005927) do
+# rubocop:disable Lint/MissingCopEnableDirective
+# rubocop:disable Style/NumericLiterals
+# rubocop:disable Metrics/BlockLength
+ActiveRecord::Schema[7.1].define(version: 2024_03_30_060531) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "likes", force: :cascade do |t|
-    t.integer "liker_id", null: false
-    t.integer "track_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["liker_id"], name: "index_likes_on_liker_id"
-    t.index ["track_id"], name: "index_likes_on_track_id"
+  create_table 'active_storage_attachments', force: :cascade do |t|
+    t.string 'name', null: false
+    t.string 'record_type', null: false
+    t.bigint 'record_id', null: false
+    t.bigint 'blob_id', null: false
+    t.datetime 'created_at', null: false
+    t.index ['blob_id'], name: 'index_active_storage_attachments_on_blob_id'
+    t.index %w[record_type record_id name blob_id], name: 'index_active_storage_attachments_uniqueness',
+                                                    unique: true
   end
 
-  create_table "tracks", force: :cascade do |t|
-    t.integer "artist_id", null: false
-    t.string "title", null: false
-    t.string "description"
-    t.string "image"
-    t.string "string"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["artist_id", "title"], name: "index_tracks_on_artist_id_and_title"
+  create_table 'active_storage_blobs', force: :cascade do |t|
+    t.string 'key', null: false
+    t.string 'filename', null: false
+    t.string 'content_type'
+    t.text 'metadata'
+    t.string 'service_name', null: false
+    t.bigint 'byte_size', null: false
+    t.string 'checksum'
+    t.datetime 'created_at', null: false
+    t.index ['key'], name: 'index_active_storage_blobs_on_key', unique: true
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "username", null: false
-    t.string "password_digest", null: false
-    t.string "session_token", null: false
-    t.string "artist_name"
-    t.integer "age"
-    t.string "bio"
-    t.string "city"
-    t.string "country"
-    t.string "first_name"
-    t.string "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["username", "artist_name"], name: "index_users_on_username_and_artist_name"
+  create_table 'active_storage_variant_records', force: :cascade do |t|
+    t.bigint 'blob_id', null: false
+    t.string 'variation_digest', null: false
+    t.index %w[blob_id variation_digest], name: 'index_active_storage_variant_records_uniqueness', unique: true
   end
 
+  create_table 'likes', force: :cascade do |t|
+    t.integer 'liker_id', null: false
+    t.integer 'track_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['liker_id'], name: 'index_likes_on_liker_id'
+    t.index ['track_id'], name: 'index_likes_on_track_id'
+  end
+
+  create_table 'tracks', force: :cascade do |t|
+    t.integer 'artist_id', null: false
+    t.string 'title', null: false
+    t.string 'description'
+    t.string 'image'
+    t.string 'string'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index %w[artist_id title], name: 'index_tracks_on_artist_id_and_title'
+  end
+
+  create_table 'users', force: :cascade do |t|
+    t.string 'username', null: false
+    t.string 'password_digest', null: false
+    t.string 'session_token', null: false
+    t.string 'artist_name'
+    t.integer 'age'
+    t.string 'bio'
+    t.string 'city'
+    t.string 'country'
+    t.string 'first_name'
+    t.string 'last_name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index %w[username artist_name], name: 'index_users_on_username_and_artist_name'
+  end
+
+  add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
+  add_foreign_key 'active_storage_variant_records', 'active_storage_blobs', column: 'blob_id'
 end
