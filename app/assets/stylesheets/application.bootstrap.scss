@@ -1,2 +1,22 @@
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap-icons/font/bootstrap-icons";
+
+@import "./reset.scss";
+@import "./api/header.scss";
+
+// CSS BASE
+@import "./api/modal.scss";
+@import "react-responsive-carousel/lib/styles/carousel.min.css";
+@import "react-jinke-music-player/assets/index.css";
+@import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+@import "./api/track_form.scss";
+@import "./api/splash.scss";
+@import "./api/search.scss";
+@import "./api/library.scss";
+@import "./api/users.scss";
+@import "./api/sessions.scss";
+@import "./api/error.scss";
+
+body {
+  font-family: "Mulish", sans-serif;
+}

@@ -1,0 +1,354 @@
+.nav-header{
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+}
+
+.nav-header-label{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 50px;
+    position: absolute;
+    font-family: 'Mulish', sans-serif;
+}
+
+#header-link{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 50px;
+    font-family: 'Mulish', sans-serif;
+}
+
+#sign-in-button{
+    display: flex;
+    color: #333;
+    z-index: 1;
+    position: absolute;
+    margin-left: 910px;
+    margin-top: 23px;
+    color: rgb(221, 221, 221);
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 3.4px;
+    padding: 5px;
+    min-width: 60px;
+    background-color:transparent;
+    transition: all 0.1s ease-in;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 5px;
+    width: 53px;
+    font-size: 13px;
+    height: 19px;
+    font-family: 'Mulish', sans-serif;
+}
+
+#sign-up-button{
+    display: flex;
+    position: absolute;
+    margin-left: 990px;
+    margin-top: 23px;
+    z-index: 1;
+    display: flex;
+    position: absolute;
+    border-radius: 3.4px;
+    padding: 5px;
+    min-width: 60px;
+    background-color:rgb(255,85,0);
+    transition: all 0.1s ease-in;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 5px;
+    width: 120px;
+    height: 19px;
+    font-size: 13px;
+    font-family: 'Mulish', sans-serif;
+    color: #fff
+}
+#root > div{
+    background-color: whitesmoke;
+    width: inherit;
+}
+#start-uploading-button{
+    left: 500px;
+    display: flex;
+    position: absolute;
+    margin-top: 320px;
+    z-index: 1;
+    display: flex;
+    position: absolute;
+    border-radius: 3.4px;
+    padding: 5px;
+    min-width: 240px;
+    background-color:rgb(255,85,0);
+    transition: all 0.1s ease-in;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 12px;
+    width: 120px;
+    height: 30px;
+    color: rgb(221, 221, 221);;
+    font-family: 'Mulish', sans-serif;
+}
+#upload-your-own-button{
+    left: 800px;
+    height: 20px;
+    margin-top: -175px;
+    margin-left: -24px;
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    position: absolute;
+    border-radius: 3.4px;
+    padding: 8px;
+    min-width: 240px;
+    background-color: rgb(255,85,0);
+    transition: all 0.1s ease-in;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+    width: 120px;
+    color: #dddddd;
+    font-family: 'Mulish', sans-serif;
+}
+
+#nav-label-creator{
+    display: flex;
+    position: absolute;
+    margin-left: 1145px;
+    margin-top: 28px;
+    z-index: 1;
+    font-size: 14px;
+    color: rgb(221, 221, 221);
+    font-family: 'Mulish', sans-serif;
+
+}
+
+.homepage-image{
+    padding-top: 3.5px;
+    display: flex;
+    width: 97.3%;
+    height: 450px;
+    margin-top: -50px;
+    margin-left: 15px;
+    background-color: #ff5500;
+    border-top: 7.3px solid #f50;
+    background-image: url(https://a-v2.sndcdn.com/assets/images/sc_landing_header_web_featured_artists@2x-00444712.jpg);
+    background: url(https://a-v2.sndcdn.com/assets/images/sc_landing_header_web_featured_artists-8081257b.jpg) 50%/cover no-repeat;
+}
+
+#nightlife{
+width:100%;
+   height: 450px;
+   object-fit:cover;
+   object-position:20% 28%;
+}
+
+#logo{
+   width:fit-content;
+   height: fit-content;
+   object-fit: cover;
+   object-position:50% 50%; 
+   margin-left: -20px;
+   margin-top: -10px;
+}
+#sonar{
+    font-family: 'Mulish', sans-serif;
+    font-size: 20px;
+    width: 150px;
+    margin-top: 5px;
+    font-weight: bold;
+    color: white;
+}
+.search-div{
+    background-color: white;
+    margin-left: 15px;
+    margin-right: 20px;
+}
+
+.outer-div{
+    background-color: whitesmoke;
+}
+#or{   
+    position: absolute;
+    margin-left: 750px;
+    /* margin-bottom: 200px; */
+    margin-top: -167px;
+    font-family: 'Mulish', sans-serif;
+}
+
+#outer-onimage-label {
+    position: absolute;
+    right: 200px;
+    bottom: 1000px;
+    left:320px;
+    top: 180px;
+    color: white;
+    font-family: 'Mulish', sans-serif;
+    font-size: 40px;
+}
+#inner-onimage-label {
+    position: absolute;
+    right: 250px;
+    bottom: 1000px;
+    left: 300px;
+    top: 260px;
+    color: white;
+    font-family: 'Mulish', sans-serif;
+    height: 10px;
+    width: 500px;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    left: 380px;
+}
+
+#header-link{
+    position: absolute;
+    z-index: 1;
+}
+
+
+
+#intro{
+    font-family: 'Mulish', sans-serif;
+    margin-left: 230px;
+    position: absolute;
+    margin-top: -100px;
+    font-size: 30px;
+}
+
+
+
+//  ******* IF LOGGED IN
+
+.personal-nav-header{
+    
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    width: 99%;
+    border: 1px solid black;
+    position: relative;
+    background-color: rgb(51,51,51);
+}
+
+.personal-space{
+    width: 100%;
+}
+
+
+.middle-nav-header{
+    position: absolute;
+    margin-top: -47px;
+    margin-left: 200px;
+    height: 100px;
+}
+#personal-logo{
+    position: absolute;
+    width: 79%;
+    margin-left: -61px;
+    margin-top: -15px;
+}
+#id{
+    size: 20px;
+}
+
+#home{
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    margin-top: -26px;
+    padding-left: 18px;
+    position: relative;
+    display: flex;
+    width: 40px;
+    border: solid 1px black;
+    font-size: 15px;
+    color: #dbdbdb;
+}
+#nav-header-stream{
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    margin-top: -26px;
+    padding-left: 110px;
+    position: relative;
+    display: flex;
+    color: rgb(219,219,219);
+    width: 40px;
+    border: solid 1px black;
+}
+
+#nav-header-upload{
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    margin-top: -6px;
+    padding-left: 20px;
+    margin-left: 231px;
+    position: absolute;
+    display: flex;
+    color: #dbdbdb;
+    width: 40px;
+    border: solid 1px black;
+    z-index: 2;
+}
+
+.right-nav-header{
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    margin-top: -6px;
+    padding-left: 22px;
+    margin-left: 828px;
+    position: relative;
+    display: flex;
+    color: #dbdbdb;
+    width: 149px;
+    border: solid 1px black;
+}
+
+.selected:hover{
+    color: white;
+    box-shadow: yellow;
+    cursor: pointer;
+}
+#selected:hover{
+    color: white;
+    box-shadow: yellow;
+    cursor: pointer;
+}
+
+.icon-github{
+    display: flex;
+    /* width: 100px; */
+    /* height: 50px; */
+    position: absolute;
+    margin-left: 860px;
+    font-size: 35px;
+    /* background-color: magenta; */
+    margin-top: 21px;
+    color: whitesmoke;
+}
+
+#icon-github-personal{
+    color: whitesmoke;
+    display: flex;
+    font-size: 35px;
+    margin-left: 110px;
+    position: absolute;
+    margin-top: 8px;
+    z-index: 123;
+}
+
+.link-profile{
+    position: absolute;
+    margin-left: -110px;
+}

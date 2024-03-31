@@ -1,0 +1,67 @@
+.likes-box{
+    display: flex;
+    position: relative;
+    padding: 5px;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+.wrapper{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+.likes-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+// .wrapper>div{
+//     display: inline-block;
+//     text-align: left;
+//     vertical-align: top;
+//     font-size: 16px;
+// }
+
+.lib-play-btn{
+    display: none;
+    position: absolute;
+    left: 37%;
+    z-index: 10;
+    bottom: 37%;
+}
+
+.lib-play-btn:hover{
+    display: inline-flex;
+    position: absolute;
+    z-index: 124;
+}
+
+.container-title{
+    color: #333333; 
+    font-size: 20px;
+    position: relative;
+    margin-top: 2.6%;
+    margin-left: 4.5%;
+    z-index: 12;
+}
+
+#library-username{
+    font-family: 'Mulish', sans-serif;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 40%;
+    display: flex;
+}
+.container-line{
+    width: 87%;
+    /* height: 20px; */
+    position: absolute;
+    margin-left: 5%;
+    border-top-color: whitesmoke;
+    z-index: 10;
+}

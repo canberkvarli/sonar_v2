@@ -1,0 +1,374 @@
+// Place all the styles related to the api/users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.user-show-page {
+  position: relative;
+}
+
+.user-show-top {
+  display: absolute;
+  height: 260px;
+}
+
+.us-header-left {
+  margin-top: 25px;
+  position: relative;
+}
+.edit-profile-btn {
+  display: inline-block;
+  padding-right: 20px;
+  position: relative;
+  height: 26px;
+  margin: 0;
+  padding: 2px 11px 2px 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  background-color: #fff;
+  cursor: pointer;
+  color: #333;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
+Garuda, Verdana, Tahoma, sans-serif;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: baseline;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  box-sizing: border-box;
+}
+.grid-header-profile {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f2f2f2;
+
+  h1 {
+    padding-left: 30px;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+.profile-pic-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  max-width: 200px;
+  max-height: 200px;
+  min-width: 200px;
+  min-height: 200px;
+  margin: auto 30px;
+  border-radius: 50%;
+  position: relative;
+  .user-page-avatar {
+    display: block;
+    width: 200px;
+    object-fit: cover;
+    z-index: 3;
+    height: 200px;
+    position: absolute;
+    border-radius: 50%;
+  }
+}
+
+.user-show-info-container {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  left: 230px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 30px;
+  .other-info {
+    font-size: 16px;
+    color: lightgray;
+    font-weight: 300;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 5px 8px;
+    margin-top: 5px;
+    width: fit-content;
+  }
+  .disp-name {
+    font-size: 25px;
+    font-weight: 300;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.75);
+    text-align: center;
+    padding: 10px 9px;
+    width: fit-content;
+  }
+}
+.song-form-description {
+  width: 100%;
+  height: 80px;
+}
+.header-photo-container {
+  position: relative;
+  display: flex;
+}
+.user-page-header {
+  width: 100%;
+  height: 260px;
+  position: absolute;
+  left: 0px;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+
+.user-display-bar {
+  display: absolute;
+  height: 64px;
+  width: 100%;
+  border-bottom: 3px solid #f2f2f2;
+}
+.user-show-mc {
+  display: flex;
+  justify-content: space-between;
+}
+.song-container-user-show {
+  position: absolute;
+  background-color: white;
+  position: static;
+  left: 0px;
+  width: 100%;
+  padding-bottom: 40px;
+  z-index: 3;
+}
+.user-show-bio {
+  font-size: 24px;
+}
+.user-display-bar {
+  font-size: 24px;
+  padding-top: 20px;
+  padding: 5px;
+}
+.right-hand-bar {
+  position: relative;
+  width: 400px;
+  padding: 20px;
+  border-left: 3px solid #f2f2f2;
+}
+.up-show-tab {
+  margin-left: 20px;
+  font-size: x-large;
+}
+
+.edit-profile-modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+.edit-profile-h1 {
+  font-size: xx-large;
+  padding: 16px 20px;
+  h1 {
+    border-bottom: 1px solid #cecece;
+    padding-bottom: 10px;
+  }
+}
+.edit-profile-modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+  height: 635px;
+  background-color: white;
+  align-items: center;
+}
+
+.edit-profile-avatar {
+  display: block;
+  width: 200px;
+  z-index: 3;
+  height: 200px;
+  object-fit: cover;
+  position: absolute;
+  border-radius: 50%;
+}
+.change-user-image-btn {
+  appearance: auto;
+  margin: 30px;
+  text-indent: 5px;
+  padding: 2px 11px 2px 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
+    Garuda, Verdana, Tahoma, sans-serif;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: baseline;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  align-items: flex-start;
+  cursor: default;
+  background-color: -internal-light-dark(#efefef, #3b3b3b);
+  box-sizing: border-box;
+  font: 400 13.3333px Arial;
+  padding: 2px 9px 2px 8px;
+  height: 22px;
+
+  vertical-align: center;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  cursor: pointer !important;
+}
+.pfp {
+  margin-top: 170px;
+}
+.header-btn {
+  margin-left: 315px;
+  margin-top: 20px;
+}
+
+.edit-profile-header {
+  width: 100%;
+  height: 260px;
+  position: absolute;
+  left: 0px;
+  display: block;
+  z-index: 1;
+}
+.edit-profile-image-input {
+  display: none;
+}
+.user-form-large-container {
+}
+.edit-profile-displayName {
+  width: 100%;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 7px 8px;
+  border-radius: 5px;
+  display: inline-block;
+  font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
+    Garuda, Verdana, Tahoma, sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: border-color 0.1s;
+}
+.edit-user-form-text-input-container {
+  width: 90%;
+  display: flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 9px 32px;
+  justify-content: space-between;
+  div {
+    label {
+      font-size: 13px;
+      padding-left: 5px;
+    }
+    margin-bottom: 7px;
+    input {
+      width: 100%;
+      font-size: 18px;
+      margin-top: 4px;
+      line-height: 24px;
+      padding: 7px 8px;
+      border-radius: 5px;
+      display: inline-block;
+      font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
+        Garuda, Verdana, Tahoma, sans-serif;
+      font-weight: 100;
+      font-size: 14px;
+      line-height: 20px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      transition: border-color 0.1s;
+    }
+  }
+}
+.uf-bio {
+  width: 100%;
+  textarea {
+    width: 100%;
+    font-size: 18px;
+    margin-top: 4px;
+    resize: none;
+    line-height: 24px;
+    padding: 7px 8px;
+    border-radius: 5px;
+    display: inline-block;
+    font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
+      Garuda, Verdana, Tahoma, sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    transition: border-color 0.1s;
+  }
+}
+.uf-fName {
+  width: 48%;
+
+  input {
+    width: 100%;
+  }
+}
+.uf-lName {
+  width: 48%;
+  input {
+    width: 100%;
+  }
+}
+
+.uf-city {
+  width: 48%;
+  input {
+    width: 100%;
+  }
+}
+.uf-country {
+  width: 48%;
+  input {
+    width: 100%;
+  }
+}
+.user-form-disp-names {
+  width: 100%;
+}
+
+.update-profile-continue-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 96%;
+}

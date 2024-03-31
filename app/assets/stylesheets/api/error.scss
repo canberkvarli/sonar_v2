@@ -1,0 +1,29 @@
+.error-div{
+    margin-left: 40%;
+    margin-top: 5%;
+}
+
+
+.err-btn{
+    cursor: pointer;
+    border: 1px solid #1a202c;
+    border-radius: 3.4px;
+    padding: 8px;
+    min-width: 256px;
+    background-color: rgb(255,85,0);
+    transition: all 0.1s ease-in;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.err-btn:hover {
+  background: #1a202c;
+  color: #ffffff;
+}
+
+.err-msg{
+    font-family: 'Mulish', sans-serif;
+    
+}
