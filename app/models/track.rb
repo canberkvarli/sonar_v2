@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: tracks
+#
+#  id          :bigint           not null, primary key
+#  artist_id   :integer          not null
+#  title       :string           not null
+#  description :string
+#  image       :string
+#  string      :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
 class Track < ApplicationRecord
   validates :title, presence: true
 
