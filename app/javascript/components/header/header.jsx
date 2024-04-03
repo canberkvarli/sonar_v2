@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FaGithubSquare } from 'react-icons/fa'
@@ -7,13 +7,10 @@ import { FaGithub } from "react-icons/fa"
 
 // import SearchContainer from '../search/search_container';
 
-
 class Header extends React.Component {
 
     constructor(props) {
         super(props)
-
-
         // this.openModalSignUp = this.openModalSignUp.bind(this);
         // this.openModalSignIn = this.openModalSignIn.bind(this);
     }
@@ -139,7 +136,7 @@ class Header extends React.Component {
                     </a>
 
                     <div className="middle-nav-header">
-                        <SearchContainer />
+                        {/* <SearchContainer /> */}
                     </div>
                     <div className="right-nav-header">
                         {/* <Link className="link-profile" to={`users/${this.props.currentUserId}`}>{this.props.currentUser.username}</Link> */}
