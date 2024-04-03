@@ -16,7 +16,6 @@ const ModalsReducer = (oldState = initialState, action) => {
       return {
         modal: action.modal,
         type: action.type,
-        modal: action.props,
       };
     case CLOSE_MODAL:
       return {
