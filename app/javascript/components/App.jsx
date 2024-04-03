@@ -7,6 +7,6 @@ export default props =>
     <>
         <Router>
             <HeaderContainer />
+            {Routes}
         </Router>
-        {Routes}
     </>;

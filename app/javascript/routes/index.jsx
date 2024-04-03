@@ -5,10 +5,8 @@ import HeaderContainer from "../components/header/header_container"
 
 export default (
     <>
-        <Router>
-            <Routes>
-                <Route path="/" element={<Splash />} />
-            </Routes>
-        </Router>
+        <Routes>
+            <Route path="/" element={<Splash />} />
+        </Routes>
     </>
 );
