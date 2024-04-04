@@ -3,9 +3,9 @@
 
 puts 'Cleaning...Seeding...'
 
-# User.destroy_all
-# Track.destroy_all
-# Like.destroy_all
+User.destroy_all
+Track.destroy_all
+Like.destroy_all
 
 puts '🧘 Creating users...'
 
