@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 
 class Search extends React.Component {
     constructor(props) {
@@ -91,11 +91,7 @@ class Search extends React.Component {
                     if (enterClickRedirect) {
                         if (typeof filtered[0] == "object") {
                             return (
-                                <Redirect
-                                    to={{
-                                        pathname: `/tracks/${filtered[0].id}`,
-                                    }}
-                                />
+                                redirect(`/tracks/${filtered[0].id}`)
                             )
                         }
                     } else {

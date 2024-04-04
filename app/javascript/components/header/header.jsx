@@ -4,8 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FaGithubSquare } from 'react-icons/fa'
 import { FaGithub } from "react-icons/fa"
-
-// import SearchContainer from '../search/search_container';
+import SearchContainer from '../search/search_container'
 
 class Header extends React.Component {
 
@@ -89,7 +88,7 @@ class Header extends React.Component {
                     </div>
                 </div>
                 <div className="search-div">
-                    {/* <SearchContainer /> */}
+                    <SearchContainer />
                 </div>
                 <span id="or">or</span>
                 <Link
@@ -136,7 +135,7 @@ class Header extends React.Component {
                     </a>
 
                     <div className="middle-nav-header">
-                        {/* <SearchContainer /> */}
+                        <SearchContainer />
                     </div>
                     <div className="right-nav-header">
                         {/* <Link className="link-profile" to={`users/${this.props.currentUserId}`}>{this.props.currentUser.username}</Link> */}

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Search from "./search";
-import { fetchTracks } from "../../actions/track_actions";
+import { fetchTracks } from "../../actions/track_actions"
 
 const mSTP = (state, ownProps) => {
 
