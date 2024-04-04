@@ -3,8 +3,7 @@ import * as APIUserUtil from "../util/user_api_util";
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_USERS = "RECEIVE_USERS";
 
-// regular
-
+// regular actions
 const receiveUser = (user) => ({
   type: RECEIVE_USER,
   user,
@@ -14,8 +13,8 @@ const receiveUsers = (users) => ({
   type: RECEIVE_USERS,
   users,
 });
-// thunk
 
+// thunk actions
 export const fetchUser = (userId) => (dispatch) => {
   APIUserUtil.fetchUser(userId).then((user) => dispatch(receiveUser(user)));
 };
