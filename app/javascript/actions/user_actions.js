@@ -27,5 +27,11 @@ export const updateUser = (user, userId) => {
 };
 
 export const fetchUsers = () => (dispatch) => {
-  APIUserUtil.fetchUsers().then((users) => dispatch(receiveUsers(users)));
+  APIUserUtil.fetchUsers()
+    .then((users) => {
+      dispatch(receiveUsers(users));
+    })
+    .catch((error) => {
+      console.error("Error fetching users:", error);
+    });
 };
