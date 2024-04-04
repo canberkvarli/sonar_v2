@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux"; // Import Provider
 import configureStore from "../store/store"
 import { fetchTracks } from '../actions/track_actions'
+import { fetchUsers } from '../actions/user_actions'
 
 import App from "./App";
 
@@ -34,5 +35,6 @@ document.addEventListener("turbo:load", () => {
     //TESTING
     window.getState = store.getState;
     window.fetchTracks = fetchTracks;
+    window.fetchUsers = fetchUsers;
     //TESTING
 });

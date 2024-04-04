@@ -17,3 +17,9 @@ export const updateUser = (user, userId) => {
   });
   return req;
 };
+
+export const fetchUsers = () =>
+  $.ajax({
+    url: "/api/users",
+    error: (err) => console.log(err),
+  });
