@@ -1,6 +1,6 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
-import { Provider } from "react-redux"; // Import Provider
+import { createRoot } from "react-dom";
+import { Provider } from "react-redux";
 import configureStore from "../store/store"
 import { fetchTracks } from '../actions/track_actions'
 import { fetchUsers } from '../actions/user_actions'
