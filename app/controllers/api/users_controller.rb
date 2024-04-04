@@ -6,7 +6,7 @@ module Api
 
     def index
       @users = User.all
-      render :index
+      render json: @users
     end
 
     def create
