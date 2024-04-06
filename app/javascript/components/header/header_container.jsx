@@ -12,7 +12,6 @@ const mSTP = ({ session, entities: { users }, errors, ui }) => (
     }
 );
 
-
 const mDTP = (dispatch) => ({
     signup: (user) => dispatch(signup(user)),
     login: (user) => dispatch(login(user)),
