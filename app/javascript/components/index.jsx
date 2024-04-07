@@ -7,7 +7,7 @@ import { fetchUsers } from '../actions/user_actions'
 
 import App from "./App";
 
-document.addEventListener("turbo:load", () => {
+document.addEventListener("DOMContentLoaded", () => {
     let store;
     const root = createRoot(
         document.body.appendChild(document.createElement("div"))
@@ -37,4 +37,5 @@ document.addEventListener("turbo:load", () => {
     window.fetchTracks = fetchTracks;
     window.fetchUsers = fetchUsers;
     //TESTING
+
 });
