@@ -1,34 +1,61 @@
 import * as convert from "./camel_to_snake.js";
 
 export const fetchTracks = (data) =>
-  $.ajax({
-    url: "/api/tracks",
-    data,
-    error: (err) => console.log(err),
-  });
+  fetch("/api/tracks", {
+    method: "GET",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error fetching tracks:", error);
+    });
 
 export const fetchTrack = (trackId) =>
-  $.ajax({
-    url: `/api/tracks/${trackId}`,
-    error: (err) => console.log(err),
-  });
+  fetch(`/api/tracks/${trackId}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error fetching track:", error);
+    });
 
 export const uploadTrack = (trackForm) => {
   let formData = convert.formDataConvert(trackForm);
-  const req = $.ajax({
+  return fetch("api/tracks/", {
     method: "POST",
-    url: `api/tracks/`,
-    data: formData,
-    contentType: false,
-    processData: false,
-    error: (err) => console.log(err),
-  });
-  return req;
+    body: formData,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error uploading track:", error);
+    });
 };
 
 export const deleteTrack = (trackId) =>
-  $.ajax({
+  fetch(`/api/tracks/${trackId}`, {
     method: "DELETE",
-    url: `/api/tracks/${trackId}`,
-    error: (err) => console.log(err),
-  });
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+    })
+    .catch((error) => {
+      console.error("Error deleting track:", error);
+    });
