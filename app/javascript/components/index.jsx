@@ -2,8 +2,6 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import store from "../store/store"
-import { fetchTracks } from '../actions/track_actions'
-import { fetchUsers } from '../actions/user_actions'
 
 import App from "./App";
 
@@ -28,11 +26,5 @@ document.addEventListener("DOMContentLoaded", () => {
             <App />
         </Provider>
     );
-
-    //TESTING
-    window.fetchTracks = store.dispatch(fetchTracks());
-    window.fetchUsers = store.dispatch(fetchUsers());
-    window.getState = store.getState;
-    //TESTING
 
 });
