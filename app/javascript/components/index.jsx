@@ -2,10 +2,12 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import store from "../store/store"
+import { fetchTracks } from "../actions/track_actions";
 
 import App from "./App";
 
 document.addEventListener("DOMContentLoaded", () => {
+    store.dispatch(fetchTracks());
     const root = createRoot(
         document.body.appendChild(document.createElement("div"))
     );
@@ -26,5 +28,4 @@ document.addEventListener("DOMContentLoaded", () => {
             <App />
         </Provider>
     );
-
 });
