@@ -1,6 +1,8 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
+import { HashRouter, Route, Switch } from "react-router-dom";
+import { AuthRoute } from "../util/route_util";
 import store from "../store/store"
 import { fetchTracks } from "../actions/track_actions";
 
@@ -28,4 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
             <App />
         </Provider>
     );
+
+    // <Provider store={store}>
+    // <HashRouter>
+    //     <Switch>
+    //         <AuthRoute exact path="/login" component={LogInFormContainer} />
+    //         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+    //         <Route path="/" component={App} />
+    //     </Switch>
+    // </HashRouter>
+    // </Provider>
 });
