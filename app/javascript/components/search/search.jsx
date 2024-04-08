@@ -17,7 +17,6 @@ class Search extends React.Component {
     }
 
     componentDidMount() {
-        // this.props.fetchtracks();
         this.setState({
             filtered: this.props.tracks,
         });
