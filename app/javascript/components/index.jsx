@@ -1,41 +1,39 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import store from "../store/store"
+import configureAppStore from "../store/store";
 import { fetchTracks } from "../actions/track_actions";
 
 import App from "./App";
 
 document.addEventListener("DOMContentLoaded", () => {
+    let preloadedState = {};
+
+    if (window.currentUser) {
+        preloadedState = {
+            entities: {
+                users: {
+                    [window.currentUser.id]: window.currentUser,
+                },
+            },
+            session: {
+                id: window.currentUser.id,
+            },
+        };
+        delete window.currentUser;
+    }
+
+    const store = configureAppStore(preloadedState);
+
     store.dispatch(fetchTracks());
+
     const root = createRoot(
         document.body.appendChild(document.createElement("div"))
     );
-
-    // if (window.currentUser) {
-    //     const preloadedState = {
-    //         entities: {
-    //             users: { [window.currentUser.id]: window.currentUser }
-    //         },
-    //         session: { id: window.currentUser.id }
-    //     };
-    //     store = configureStore(preloadedState);
-    //     delete window.currentUser;
-    // }
 
     root.render(
         <Provider store={store}>
             <App />
         </Provider>
     );
-
-    // <Provider store={store}>
-    // <HashRouter>
-    //     <Switch>
-    //         <AuthRoute exact path="/login" component={LogInFormContainer} />
-    //         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-    //         <Route path="/" component={App} />
-    //     </Switch>
-    // </HashRouter>
-    // </Provider>
 });
