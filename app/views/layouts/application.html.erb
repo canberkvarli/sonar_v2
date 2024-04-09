@@ -11,6 +11,19 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+        <script>
+            window.currentUser = <%= raw(render partial: "api/users/user", formats: [:json], locals: { user: current_user }) %>;
+        </script>
+    <% else %>
+        <script>
+            window.currentUser = {
+                id: 0,
+                username: 'Guest',
+                email: 'guest@example.com'
+            };
+        </script>
+    <% end %>
     <%= yield %>
   </body>
 </html>
