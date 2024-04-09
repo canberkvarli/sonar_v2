@@ -25,8 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const store = configureAppStore(preloadedState);
 
-    store.dispatch(fetchTracks());
-
     const root = createRoot(
         document.body.appendChild(document.createElement("div"))
     );
