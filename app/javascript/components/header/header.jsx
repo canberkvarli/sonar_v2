@@ -51,9 +51,9 @@ class Header extends React.Component {
                         <span id="sonar">S O N A R</span>
                     </Link>
 
-                    <a href="https://github.com/canberkvarli">
+                    <Link to="https://github.com/canberkvarli">
                         <span className="icon-github"> <FaGithubSquare /></span>
-                    </a>
+                    </Link>
                     <Link
                         to="/login"
                         type="button"
