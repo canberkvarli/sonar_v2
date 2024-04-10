@@ -1,24 +1,51 @@
 export const login = (user) => {
-  return $.ajax({
+  return fetch("/api/session", {
     method: "POST",
-    // beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-    url: "/api/session",
-    data: { user },
-    error: (err) => console.log(err),
-  });
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ user }),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
 };
 
-export const signup = (user) =>
-  $.ajax({
+export const signup = (user) => {
+  return fetch("/api/users", {
     method: "POST",
-    url: "/api/users",
-    data: { user },
-    error: (err) => console.log(err),
-  });
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ user }),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
+};
 
-export const logout = () =>
-  $.ajax({
+export const logout = () => {
+  return fetch("/api/session", {
     method: "DELETE",
-    url: "/api/session",
-    error: (err) => console.log(err),
-  });
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
+};
