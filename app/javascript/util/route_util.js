@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Route, Redirect } from "react-router-dom";
+import { Route, redirect } from "react-router-dom";
 
 export const AuthRoute = ({ component: Component, path, exact }) => {
   const loggedIn = useSelector((state) => Boolean(state.session.id));
@@ -9,9 +9,7 @@ export const AuthRoute = ({ component: Component, path, exact }) => {
     <Route
       path={path}
       exact={exact}
-      render={(props) =>
-        !loggedIn ? <Component {...props} /> : <Redirect to="/" />
-      }
+      render={(props) => (!loggedIn ? <Component {...props} /> : redirect("/"))}
     />
   );
 };
@@ -24,7 +22,8 @@ export const ProtectedRoute = ({ component: Component, path, exact }) => {
       path={path}
       exact={exact}
       render={(props) =>
-        loggedIn ? <Component {...props} /> : <Redirect to="/login" />
+        loggedIn ? <Component {...props} /> : redirect("/login")
       }
     />
   );
+};

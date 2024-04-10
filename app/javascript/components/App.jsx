@@ -5,7 +5,7 @@ import HeaderContainer from "./header/header_container"
 import TrackIndexContainer from "../components/tracks/track_index_container"
 import LoginFormContainer from "../components/session_form/login_form_container";
 import SignupFormContainer from "../components/session_form/signup_form_container";
-// import { AuthRoute } from "../util/route_util";
+import { AuthRoute } from "../util/route_util";
 
 
 export default props =>
@@ -19,8 +19,8 @@ export default props =>
                         <Splash />
                     </>
                 } />
-                {/* <AuthRoute path="/login" element={<LoginFormContainer />} />
-                <AuthRoute path="/signup" element={<SignupFormContainer />} /> */}
+                <Route path="/login" element={<LoginFormContainer />} />
+                <Route path="/signup" element={<SignupFormContainer />} />
             </Routes>
         </Router>
     </>;
