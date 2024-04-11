@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     resource :session, only: %i[create destroy]
   end
 
+  get '*path', to: 'homepage#index'
+
   root 'homepage#index'
 end
