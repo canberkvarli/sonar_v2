@@ -33,7 +33,7 @@ export const signup = (user) => (dispatch) =>
   APIUtil.signup(user)
     .then((response) => {
       console.log("Response from signup API:", response);
-      return response.json();
+      return response;
     })
     .then(
       (user) => {
