@@ -30,7 +30,18 @@ export const logout = () => (dispatch) =>
   APIUtil.logout().then(() => dispatch(logoutCurrentUser()));
 
 export const signup = (user) => (dispatch) =>
-  APIUtil.signup(user).then(
-    (user) => dispatch(receiveCurrentUser(user)),
-    (err) => dispatch(receiveErrors(err.responseJSON))
-  );
+  APIUtil.signup(user)
+    .then((response) => {
+      console.log("Response from signup API:", response);
+      return response.json();
+    })
+    .then(
+      (user) => {
+        console.log("User data received:", user);
+        dispatch(receiveCurrentUser(user));
+      },
+      (err) => {
+        console.error("Error during signup:", err);
+        dispatch(receiveErrors(err.responseJSON));
+      }
+    );
