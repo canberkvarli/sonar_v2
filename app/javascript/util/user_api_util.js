@@ -10,25 +10,24 @@ export const fetchUser = (userId) =>
       console.error("Error fetching user:", error);
     });
 
-export const updateUser = (user, userId) => {
+export const updateUser = async (user, userId) => {
   let formData = convert.formDataConvert(user);
 
-  return fetch(`/api/users/${userId}`, {
-    method: "PATCH",
-    body: formData,
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Failed to update user");
-      }
-      return response.json();
-    })
-    .catch((error) => {
-      console.error("Error updating user:", error);
+  try {
+    const response = await fetch(`/api/users/${userId}`, {
+      method: "PATCH",
+      body: formData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
     });
+    if (!response.ok) {
+      throw new Error("Failed to update user");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error updating user:", error);
+  }
 };
 
 export const fetchUsers = () =>
