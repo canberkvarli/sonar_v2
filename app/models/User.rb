@@ -16,9 +16,9 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
-class User < ApplicationRecord # rubocop:disable Naming/FileName
+class User < ApplicationRecord
   validates :username, uniqueness: true
-  validates :artist_name, uniqueness: true
+  validates :artist_name, uniqueness: true, allow_nil: true
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { minimum: 6 }
 

@@ -15,6 +15,7 @@ module Api
         login(@user)
         render json: @user
       else
+        puts "User creation failed: #{@user.errors.full_messages}"
         render json: @user.errors.full_messages, status: 402
       end
     end
