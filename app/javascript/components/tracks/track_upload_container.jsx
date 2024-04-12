@@ -1,10 +1,9 @@
 
 import { connect } from 'react-redux';
 import { uploadTrack } from '../../actions/track_actions';
-import TrackUpload from './track_upload'
+import TrackUpload from './track_upload';
 
 const mSTP = (state, ownProps) => {
-    // 
     return {
         currentUser: state.entities.users[state.session.id],
         track: {

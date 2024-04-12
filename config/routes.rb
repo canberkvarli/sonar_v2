@@ -11,7 +11,10 @@ Rails.application.routes.draw do
     resource :session, only: %i[create destroy]
   end
 
+  # TODO: quick workaround for frontend routing. Fix it by perhaps using a public/index.html
   root 'homepage#index'
   get 'login', to: 'homepage#index', as: :login
   get 'signup', to: 'homepage#index', as: :signup
+  get 'upload', to: 'homepage#index', as: :upload
+  get 'library', to: 'homepage#index', as: :library
 end
