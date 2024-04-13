@@ -7,9 +7,6 @@ export const login = async (user) => {
       },
       body: JSON.stringify({ user }),
     });
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
     return await response.json();
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);
@@ -25,9 +22,6 @@ export const signup = async (user) => {
       },
       body: JSON.stringify({ user }),
     });
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
     return await response.json();
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);
@@ -39,9 +33,7 @@ export const logout = async () => {
     const response = await fetch("/api/session", {
       method: "DELETE",
     });
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
+    return await response.json();
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);
   }

@@ -17,7 +17,7 @@
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
-  validates :username, uniqueness: true
+  validates :username, uniqueness: true, length: { minimum: 3 }
   validates :artist_name, uniqueness: true, allow_nil: true
   validates :session_token, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
