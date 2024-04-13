@@ -27,8 +27,8 @@ class SessionForm extends React.Component {
         this.props.login(demouser);
     }
 
-    handleSubmit(e) {
-        e.preventDefault()
+    handleSubmit() {
+        // e.preventDefault()
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
     }
