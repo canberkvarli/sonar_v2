@@ -20,7 +20,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validates :artist_name, uniqueness: true, allow_nil: true
   validates :session_token, presence: true, uniqueness: true
-  validates :password, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }
 
   attr_accessor :password
 

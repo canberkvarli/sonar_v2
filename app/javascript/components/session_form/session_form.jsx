@@ -27,8 +27,8 @@ class SessionForm extends React.Component {
         this.props.login(demouser);
     }
 
-    handleSubmit() {
-        // e.preventDefault()
+    handleSubmit(e) {
+        e.preventDefault()
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
     }
@@ -41,7 +41,6 @@ class SessionForm extends React.Component {
     }
 
     renderErrors() {
-
         const err = (
             <ul className="session-form" id="session-errors">
                 {this.props.errors.map((error, i) => (
