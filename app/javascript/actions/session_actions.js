@@ -42,6 +42,6 @@ export const signup = (user) => (dispatch) =>
       },
       (err) => {
         console.error("Error during signup:", err);
-        dispatch(receiveErrors(err.responseJSON));
+        dispatch(receiveErrors(err));
       }
     );
