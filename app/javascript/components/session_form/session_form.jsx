@@ -64,7 +64,7 @@ class SessionForm extends React.Component {
                         Please {this.props.formType} or <span id="navLink" > {this.props.navLink} </span>
 
                     </h4>
-                    <form className="session-form" onSubmit={() => this.handleSubmit()}>
+                    <form className="session-form" onSubmit={this.handleSubmit}>
                         <label className="session-form-label" htmlFor="username">Username
 
                             <input
