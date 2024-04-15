@@ -17,7 +17,7 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = dispatch => ({
     fetchTracks: () => dispatch(fetchTracks()),
-    fetchUser: () => dispatch(fetchUser()),
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
     fetchTrack: (trackId) => dispatch(fetchTrack(trackId)),
     deleteTrack: (trackId) => dispatch(deleteTrack(trackId)),
     uploadTrack: (track) => dispatch(uploadTrack(track)),
