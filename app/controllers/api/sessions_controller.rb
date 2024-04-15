@@ -10,7 +10,6 @@ module Api
         login(@user)
         render json: @user
       else
-        # render json: @user.errors.full_messages, status: 402
         render json: ['Invalid username/password combination'], status: 401
       end
     end
