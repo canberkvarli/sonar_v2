@@ -21,10 +21,21 @@ const receiveErrors = (errors) => ({
 //thunk action creators
 
 export const login = (user) => (dispatch) =>
-  APIUtil.login(user).then(
-    (user) => dispatch(receiveCurrentUser(user)),
-    (err) => dispatch(receiveErrors(err.responseJSON))
-  );
+  APIUtil.login(user)
+    .then((response) => {
+      console.log("Response from login API:", response);
+      return response;
+    })
+    .then(
+      (user) => {
+        console.log("User data received:", user);
+        dispatch(receiveCurrentUser(user));
+      },
+      (err) => {
+        console.log("Error during login:", err);
+        dispatch(receiveErrors(err));
+      }
+    );
 
 export const logout = () => (dispatch) =>
   APIUtil.logout().then(() => dispatch(logoutCurrentUser()));

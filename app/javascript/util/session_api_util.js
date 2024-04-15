@@ -6,12 +6,12 @@ export const login = async (user) => {
     },
     body: JSON.stringify({ user }),
   });
+
   if (response.ok) {
     return await response.json();
   } else {
-    return response.json().then((err) => {
-      throw err;
-    });
+    const errorData = await response.json();
+    throw errorData;
   }
 };
 
