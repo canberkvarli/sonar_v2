@@ -15,7 +15,7 @@ export default () => {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<HomePage />} />
+                <Route path="/" element={loggedIn ? <HomePage /> : <LandingPage />} />
                 <Route path="/login" element={loggedIn ? <Navigate to="/" /> : <LoginFormContainer />} />
                 <Route path="/signup" element={loggedIn ? <Navigate to="/" /> : <SignupFormContainer />} />
                 {/* <ProtectedRoute path="/upload" element={<TrackUploadContainer />} loggedIn={loggedIn} /> */}
@@ -24,12 +24,21 @@ export default () => {
     );
 };
 
-const HomePage = () => {
+const LandingPage = () => {
     return (
         <>
             <HeaderContainer />
             <TrackIndexContainer />
             <Splash />
+        </>
+    );
+};
+
+const HomePage = () => {
+    return (
+        <>
+            <HeaderContainer />
+            <TrackIndexContainer />
         </>
     );
 };
