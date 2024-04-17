@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Splash from "../components/splash/splash";
 import HeaderContainer from "./header/header_container";
+import TrackShowContainer from "../components/tracks/track_show_container";
 import TrackIndexContainer from "../components/tracks/track_index_container";
 import LoginFormContainer from "../components/session_form/login_form_container";
 import SignupFormContainer from "../components/session_form/signup_form_container";
@@ -16,6 +17,7 @@ export default () => {
         <Router>
             <Routes>
                 <Route path="/" element={loggedIn ? <HomePage /> : <LandingPage />} />
+                <Route path="/tracks/:trackId" element={<TrackShowContainer />} />
                 <Route path="/login" element={loggedIn ? <Navigate to="/" /> : <LoginFormContainer />} />
                 <Route path="/signup" element={loggedIn ? <Navigate to="/" /> : <SignupFormContainer />} />
                 {/* <ProtectedRoute path="/upload" element={<TrackUploadContainer />} loggedIn={loggedIn} /> */}

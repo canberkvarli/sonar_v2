@@ -4,7 +4,7 @@ import { FaHeart, FaAngleDoubleLeft } from 'react-icons/fa'
 import PlayButtonContainer from "../play_button/play_button_container";
 import { WaveformContainer } from '../tracks/waveform_container';
 import WaveSurfer from 'wavesurfer.js';
-import Oval from "react-loader-spinner";
+import { Oval } from "react-loader-spinner";
 
 
 
