@@ -78,6 +78,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem 'rack-cors'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
