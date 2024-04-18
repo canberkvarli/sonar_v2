@@ -17,7 +17,7 @@ export default () => {
         <Router>
             <Routes>
                 <Route path="/" element={loggedIn ? <HomePage /> : <LandingPage />} />
-                <Route path="/tracks/:trackId" element={<TrackShowContainer />} />
+                <Route path="/tracks/:trackId" element={<TrackShowPage />} />
                 <Route path="/login" element={loggedIn ? <Navigate to="/" /> : <LoginFormContainer />} />
                 <Route path="/signup" element={loggedIn ? <Navigate to="/" /> : <SignupFormContainer />} />
                 {/* <ProtectedRoute path="/upload" element={<TrackUploadContainer />} loggedIn={loggedIn} /> */}
@@ -41,6 +41,15 @@ const HomePage = () => {
         <>
             <HeaderContainer />
             <TrackIndexContainer />
+        </>
+    );
+};
+
+const TrackShowPage = () => {
+    return (
+        <>
+            <HeaderContainer />
+            <TrackShowContainer />
         </>
     );
 };

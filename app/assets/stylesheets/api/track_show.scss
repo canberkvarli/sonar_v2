@@ -1,227 +1,226 @@
 .track-show-page-container {
-    width: 1200px;
-    background-color: white;
-    margin: auto;
-    font-family: 'Oxygen';
-    padding-bottom: 50px;
+  width: 1200px;
+  background-color: white;
+  margin: auto;
+  font-family: "Oxygen";
+  padding-bottom: 50px;
 }
 
 .track-banner {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(243, 243, 243);
-    background-image: linear-gradient(to bottom right, darkslategray, dimgray);
-    background-size: cover;
-    padding: 30px;
-    margin: 0px 15px 0px 15px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(243, 243, 243);
+  background-image: linear-gradient(to bottom right, darkslategray, dimgray);
+  background-size: cover;
+  padding: 30px;
+  margin: 0px 15px 0px 15px;
 }
 
-#track-show-image{
-    margin-top: 100px;
-    // margin-left: 50px;
-    // padding-right: 50px;
-    width: 180px;
-    height: 180px;
-    display: flex;
-    align-items: center;
-    background-image: linear-gradient(135deg, #846170, #70929c);
+#track-show-image {
+  margin-top: 100px;
+  // margin-left: 50px;
+  // padding-right: 50px;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(135deg, #846170, #70929c);
 }
-#track-show-image:hover{
-    box-shadow: 0px 0px 5px 0px #333333;
-
+#track-show-image:hover {
+  box-shadow: 0px 0px 5px 0px #333333;
 }
-#track-show-title{
-    margin-left: 16%;
-    position: relative;
-    width: auto;
-    display: flex;
-    margin-top: 20px;
-    height: auto; 
+#track-show-title {
+  margin-left: 16%;
+  position: relative;
+  width: auto;
+  display: flex;
+  margin-top: 20px;
+  height: auto;
   font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
-Garuda, Verdana, Tahoma, sans-serif;
-    font-size: 16px;
-    justify-content: space-between;
-    /* align-items: flex-start; */
-    width: 225px;
-    flex-direction: row;
+    Garuda, Verdana, Tahoma, sans-serif;
+  font-size: 16px;
+  justify-content: space-between;
+  /* align-items: flex-start; */
+  width: 225px;
+  flex-direction: row;
 }
 
 .track-show-page-under-banner {
-    width: 800px;
+  width: 800px;
 }
 
 .track-banner-left {
-    display: flex;
+  display: flex;
 }
 
 .track-play-btn {
-    width: fit-content;
-    height: fit-content;
-    font-size: 20px;
-    margin: 0px 7px 0px 0px;
-    color: white;
-    background-color: orangered;
-    padding: 20px 20px 20px 25px;
-    border-radius: 50%;
+  width: fit-content;
+  height: fit-content;
+  font-size: 20px;
+  margin: 0px 7px 0px 0px;
+  color: white;
+  background-color: orangered;
+  padding: 20px 20px 20px 25px;
+  border-radius: 50%;
 }
 
 .track-pause-btn {
-    width: fit-content;
-    height: fit-content;
-    font-size: 20px;
-    margin: 0px 7px 0px 0px;
-    color: white;
-    background-color: orangered;
-    padding: 20px 22px 20px 23px;
-    border-radius: 50%;
+  width: fit-content;
+  height: fit-content;
+  font-size: 20px;
+  margin: 0px 7px 0px 0px;
+  color: white;
+  background-color: orangered;
+  padding: 20px 22px 20px 23px;
+  border-radius: 50%;
 }
 
-.track-play-btn:hover, .track-pause-btn:hover {
-    cursor: pointer;
+.track-play-btn:hover,
+.track-pause-btn:hover {
+  cursor: pointer;
 }
 
 .track-banner-title {
-    width: max-content;
-    background-color: rgb(40, 40, 40);
-    color: white;
-    font-size: 24px;
-    margin: 0px 0px 15px 0px;
-    padding: 5px;
+  width: max-content;
+  background-color: rgb(40, 40, 40);
+  color: white;
+  font-size: 24px;
+  margin: 0px 0px 15px 0px;
+  padding: 5px;
 }
 
 .track-banner-uploader {
-    text-decoration: none;
-    width: max-content;
-    background-color: rgb(40, 40, 40);
-    color: rgb(202, 202, 202);
-    font-size: 18px;
-    padding: 5px;
+  text-decoration: none;
+  width: max-content;
+  background-color: rgb(40, 40, 40);
+  color: rgb(202, 202, 202);
+  font-size: 18px;
+  padding: 5px;
 }
 
-.track-banner-uploader:visited, .track-banner-uploader:link {
-    text-decoration: none;
+.track-banner-uploader:visited,
+.track-banner-uploader:link {
+  text-decoration: none;
 }
 
 .track-banner-right {
-    display: flex;
+  display: flex;
 }
 
 .track-banner-right-labels {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin: 10px 20px 10px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 10px 20px 10px 0px;
 }
 
 .time-ago {
-    width: max-content;
-    background-color: rgba(255, 255, 255, 0.445);
-    color: rgb(49, 49, 49);
-    padding: 5px;
-    font-size: 18px;
+  width: max-content;
+  background-color: rgba(255, 255, 255, 0.445);
+  color: rgb(49, 49, 49);
+  padding: 5px;
+  font-size: 18px;
 }
 
 .track-show-genre {
-    margin: 20px 0px 0px 0px;
-    padding: 7px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.327);
-    border-radius: 30px;
+  margin: 20px 0px 0px 0px;
+  padding: 7px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.327);
+  border-radius: 30px;
 }
 
 .track-show-cover-img {
-    width: 300px;
-    height: 300px;
-    background-image: linear-gradient(
-    135deg, #846170, #70929c);
+  width: 300px;
+  height: 300px;
+  background-image: linear-gradient(135deg, #846170, #70929c);
 }
 
 .track-show-page-under-banner {
-    padding: 0px 0px 30px 30px;
+  padding: 0px 0px 30px 30px;
 }
 
 .comment-form-profile-pic {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 .comment-form-container {
-    display: flex;
-    margin: 20px 0px 15px 0px;
+  display: flex;
+  margin: 20px 0px 15px 0px;
 }
 
 .comment-form {
-    width: 100%;
-    border: 1px solid rgb(227, 227, 227);
-    background-color: rgb(241, 241, 241);
+  width: 100%;
+  border: 1px solid rgb(227, 227, 227);
+  background-color: rgb(241, 241, 241);
 }
 
 .comment-form input {
-    margin: 5px 0px 5px 5px;
-    width: 98%;
-    height: 65%;
-    border: 1px solid rgb(227, 227, 227);
-    border-radius: 3px;
-    font-family: 'Oxygen';
-    font-size: 16px;
+  margin: 5px 0px 5px 5px;
+  width: 98%;
+  height: 65%;
+  border: 1px solid rgb(227, 227, 227);
+  border-radius: 3px;
+  font-family: "Oxygen";
+  font-size: 16px;
 }
 
 .comment-form input:focus {
-    outline: none;
+  outline: none;
 }
 
 .modify-track-btns {
-    margin: 0px 0px 15px 0px;
-    padding: 0px 0px 15px 0px;
-    border-bottom: 1px solid rgb(207, 207, 207);
+  margin: 0px 0px 15px 0px;
+  padding: 0px 0px 15px 0px;
+  border-bottom: 1px solid rgb(207, 207, 207);
 }
 
 .modify-track-btn {
-    background-color: white;
-    border: 1px solid rgb(231, 231, 231);
-    border-radius: 2px;
-    margin: 0px 3px 0px 0px;
-    padding: 4px 10px;
-    font-family: 'Oxygen';
-    font-size: 13px;
+  background-color: white;
+  border: 1px solid rgb(231, 231, 231);
+  border-radius: 2px;
+  margin: 0px 3px 0px 0px;
+  padding: 4px 10px;
+  font-family: "Oxygen";
+  font-size: 13px;
 }
 
 .modify-track-btn:hover {
-    border-color: rgb(202, 202, 202);
-    cursor: pointer;
+  border-color: rgb(202, 202, 202);
+  cursor: pointer;
 }
 
 .under-comment-form {
-    display: flex;
+  display: flex;
 }
 
 .uploader-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .uploader-details-pic {
-    width: 100px;
-    border-radius: 100%;
+  width: 100px;
+  border-radius: 100%;
 }
 
-#wave-bar{
-    width: 760.49996px;
-    position: absolute;
-    background-color: black;
-    margin-top: -11px;
-    margin-left: 20px;
-    border: 1px solid red;
+#wave-bar {
+  width: 760.49996px;
+  position: absolute;
+  background-color: black;
+  margin-top: -11px;
+  margin-left: 20px;
+  border: 1px solid red;
 }
 
-.loader{
+.loader {
   position: absolute;
   margin-right: 700px;
   margin-top: -35px;
   width: 100px;
 }
 
-.track-banner-bottom{
-    
+.track-banner-bottom {
 }

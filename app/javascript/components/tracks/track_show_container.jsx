@@ -1,38 +1,36 @@
 import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
 import { fetchTrack, fetchTracks, setMainTrack } from "../../actions/track_actions";
 import { createLike, deleteLike } from "../../actions/like_actions";
 import { fetchUser } from "../../actions/user_actions";
 import { pauseTrack, playTrack } from "../../actions/playhead_actions";
-import { withRouter } from "react-router";
 
 import TrackShow from "./track_show";
 
-const mSTP = (state, ownProps) => {
+const mSTP = (state) => {
 
+  let tracks = Object.values(state.entities.tracks)
+  let { trackId } = useParams()
+  let currentLikeId;
+  let currentUser;
+  let userLikesTrack;
 
   const trackLoaded = () => {
-    if (state.entities.tracks[ownProps.match.params.trackId]) {
+    if (state.entities.tracks[trackId]) {
       return true;
     } else {
       return false
     }
   }
 
-
-  let tracks = Object.values(state.entities.tracks)
-  let currentLikeId;
-  let currentUser;
-  let userLikesTrack;
-
-
   if (state.session.id) {  // if there is a current session
 
     currentUser = state.entities.users[state.session.id];
     if (currentUser.likes) {
 
-      if (currentUser.likes[ownProps.match.params.trackId]) {
+      if (currentUser.likes[trackId]) {
 
-        currentLikeId = currentUser.likes[ownProps.match.params.trackId].id
+        currentLikeId = currentUser.likes[trackId].id
         userLikesTrack = true;
 
       }
@@ -49,9 +47,9 @@ const mSTP = (state, ownProps) => {
   return {
 
     currentUser: state.entities.users[state.session.id],
-    trackId: ownProps.match.params.trackId,
-    track: state.entities.tracks[ownProps.match.params.trackId],
-    // trackUrl: (trackLoaded() ? tracks[ownProps.match.params.trackId].trackUrl : ''),
+    trackId: trackId,
+    track: state.entities.tracks[trackId],
+    // trackUrl: (trackLoaded() ? tracks[trackId].trackUrl : ''),
     userLikesTrack: userLikesTrack,
     currentLikeId,
     currentTime: state.playhead.currentTime,
@@ -79,4 +77,4 @@ const mDTP = dispatch => {
 
 }
 
-export default withRouter(connect(mSTP, mDTP)(TrackShow));
+export default connect(mSTP, mDTP)(TrackShow)
