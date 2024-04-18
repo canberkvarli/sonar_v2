@@ -8,6 +8,7 @@ import TrackShowContainer from "../components/tracks/track_show_container";
 import LoginFormContainer from "../components/session_form/login_form_container";
 import SignupFormContainer from "../components/session_form/signup_form_container";
 import PlayheadContainer from "../components/playhead/playhead_container";
+import LibraryContainer from "../components/library/library_container"
 // import TrackUploadContainer from "../components/tracks/track_upload_container"
 
 
@@ -18,6 +19,7 @@ export default () => {
         <Router>
             <Routes>
                 <Route path="/" element={loggedIn ? <HomePage /> : <LandingPage />} />
+                <Route path="/library" element={<LibraryPage />} />
                 <Route path="/tracks/:trackId" element={<TrackShowPage />} />
                 <Route path="/login" element={loggedIn ? <Navigate to="/" /> : <LoginFormContainer />} />
                 <Route path="/signup" element={loggedIn ? <Navigate to="/" /> : <SignupFormContainer />} />
@@ -54,6 +56,15 @@ const TrackShowPage = () => {
             <HeaderContainer />
             <TrackShowContainer />
             <PlayheadContainer />
+        </>
+    );
+};
+
+const LibraryPage = () => {
+    return (
+        <>
+            <HeaderContainer />
+            <LibraryContainer />
         </>
     );
 };
