@@ -50,17 +50,20 @@ class TrackShow extends React.Component {
         this.waveform.on("loading", () => {
             this.setState({
                 loading: true
-            });
-        });
-
+            })
+        })
         this.waveform.on("ready", () => {
             this.setState({
                 loading: false
-            });
-            console.log("loading is finished");
-        });
+            })
+            console.log("loading is finished")
+        })
 
-        this.props.fetchTrack(this.props.trackId);
+
+        // this.props.fetchTracks().then(
+        //     this.props.setCurrentTrack(this.props.track)
+        // )
+        this.props.fetchTrack(this.props.trackId)
     }
 
     createLike(e) {
@@ -142,7 +145,7 @@ class TrackShow extends React.Component {
         } else if (!this.props.isPlaying) {
             // this.props.playTrack()
             this.waveform.play()
-            this.waveform.setMute()
+            this.waveform.setMuted()
         }
     }
 
