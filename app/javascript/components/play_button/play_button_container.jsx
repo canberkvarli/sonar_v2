@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import PlayButton from "./play_button";
+import { fetchTrack } from "../../actions/track_actions";
 import { receivePlayTrack, playTrack, pauseTrack } from "../../actions/playhead_actions";
 
 const mSTP = (state) => ({
@@ -10,7 +11,8 @@ const mSTP = (state) => ({
 const mDTP = dispatch => ({
     receivePlayTrack: track => dispatch(receivePlayTrack(track)),
     playTrack: () => dispatch(playTrack()),
-    pauseTrack: () => dispatch(pauseTrack())
+    pauseTrack: () => dispatch(pauseTrack()),
+    fetchTrack: () => dispatch(fetchTrack()),
 });
 
 export default connect(mSTP, mDTP)(PlayButton);

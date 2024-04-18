@@ -56,7 +56,9 @@ class TrackShow extends React.Component {
             this.setState({
                 loading: false
             })
-            console.log("loading is finished")
+            this.props.receivePlayTrack(this.props.track);
+            this.props.playTrack()
+            this.waveform.play()
         })
 
 
@@ -135,15 +137,11 @@ class TrackShow extends React.Component {
     }
 
     handlePlayPause() {
-
-        // this.waveform.play();     
-        // this.waveform.setMute()
-
         if (this.props.isPlaying) {
-            // this.props.pauseTrack()
+            this.props.pauseTrack()
             this.waveform.pause()
         } else if (!this.props.isPlaying) {
-            // this.props.playTrack()
+            this.props.playTrack()
             this.waveform.play()
             this.waveform.setMuted()
         }

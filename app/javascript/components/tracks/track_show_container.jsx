@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { fetchTrack, fetchTracks, setMainTrack } from "../../actions/track_actions";
 import { createLike, deleteLike } from "../../actions/like_actions";
 import { fetchUser } from "../../actions/user_actions";
-import { pauseTrack, playTrack } from "../../actions/playhead_actions";
+import { pauseTrack, playTrack, receivePlayTrack } from "../../actions/playhead_actions";
 
 import TrackShow from "./track_show";
 
@@ -71,8 +71,8 @@ const mDTP = dispatch => {
     deleteLike: (likeId, trackId) => dispatch(deleteLike(likeId, trackId)),
     playTrack: () => dispatch(playTrack()),
     pauseTrack: () => dispatch(pauseTrack()),
-    setMainTrack: (track) => dispatch(setMainTrack(track))
-
+    setMainTrack: (track) => dispatch(setMainTrack(track)),
+    receivePlayTrack: (track) => dispatch(receivePlayTrack(track)),
   }
 
 }

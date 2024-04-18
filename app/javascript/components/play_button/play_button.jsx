@@ -4,7 +4,6 @@ import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 
 const PlayButton = ({ currentTrack, trackId, track, receivePlayTrack, playTrack, pauseTrack, isPlaying }) => {
     const currentPlayingTrack = document.getElementById("current-song");
-
     let button;
     if (!currentTrack) {
         button = (<div className="track-play-btn">
