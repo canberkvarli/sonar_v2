@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get 'signup', to: 'homepage#index', as: :signup
   get 'upload', to: 'homepage#index', as: :upload
   get 'library', to: 'homepage#index', as: :library
+  get 'tracks/:id', to: 'homepage#index', as: :track
 end

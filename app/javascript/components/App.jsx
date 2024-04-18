@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Splash from "../components/splash/splash";
 import HeaderContainer from "./header/header_container";
-import TrackShowContainer from "../components/tracks/track_show_container";
 import TrackIndexContainer from "../components/tracks/track_index_container";
+import TrackShowContainer from "../components/tracks/track_show_container";
 import LoginFormContainer from "../components/session_form/login_form_container";
 import SignupFormContainer from "../components/session_form/signup_form_container";
 // import TrackUploadContainer from "../components/tracks/track_upload_container"
