@@ -27,52 +27,52 @@ class TrackShow extends React.Component {
 
 
     componentDidMount() {
-        this.waveform = WaveSurfer.create({
-            barWidth: 2,
-            cursorWidth: 0,
-            container: '#waveform',
-            backend: 'WebAudio',
-            height: 200,
-            showCursor: false,
-            cursorColor: "black",
-            progressColor: '#ff5500',
-            responsive: true,
-            waveColor: "lightgray",
-            partialRender: true,
-            pixelRatio: 1,
-            forceDecode: true,
-            normalize: true,
-            interact: false
-        });
+        // Check if WaveSurfer instance already exists
+        if (!this.waveform) {
+            // Initialize the WaveSurfer instance
+            this.waveform = WaveSurfer.create({
+                barWidth: 2,
+                cursorWidth: 0,
+                container: '#waveform',
+                backend: 'WebAudio',
+                height: 200,
+                showCursor: false,
+                cursorColor: "black",
+                progressColor: '#ff5500',
+                responsive: true,
+                waveColor: "lightgray",
+                partialRender: true,
+                pixelRatio: 1,
+                forceDecode: true,
+                normalize: true,
+                interact: false
+            });
 
-        this.waveform.load(this.props.track.audioUrl)
+            // Load audio URL to the WaveSurfer instance
+            this.waveform.load(this.props.track.audioUrl);
 
-        this.waveform.on("loading", () => {
-            this.setState({
-                loading: true
-            })
-        })
-        this.waveform.on("ready", () => {
-            this.setState({
-                loading: false
-            })
-            this.props.receivePlayTrack(this.props.track);
-            this.props.playTrack()
-            this.waveform.play()
-        })
+            // Event listeners for loading and ready states
+            this.waveform.on("loading", () => {
+                this.setState({ loading: true });
+            });
+            this.waveform.on("ready", () => {
+                this.setState({ loading: false });
+                this.props.receivePlayTrack(this.props.track);
+                this.props.playTrack();
+                this.waveform.play();
+            });
+        }
 
-
-        // this.props.fetchTracks().then(
-        //     this.props.setCurrentTrack(this.props.track)
-        // )
-        this.props.fetchTrack(this.props.trackId)
+        if (this.props.trackId) {
+            this.props.fetchTrack(this.props.trackId);
+        }
     }
 
     componentWillUnmount() {
+        // Clean up the WaveSurfer instance
         if (this.waveform) {
             this.waveform.destroy();
         }
-
     }
 
     createLike(e) {
