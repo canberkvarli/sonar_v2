@@ -29,12 +29,14 @@ export default () => {
                 />
                 <Route
                     path="/library"
-                    element={
+                    element={loggedIn ? (
                         <>
                             <HeaderContainer />
                             <LibraryContainer />
                         </>
-                    }
+                    ) : (
+                        <Navigate to="/" />
+                    )}
                 />
                 <Route
                     path="/tracks/:trackId"

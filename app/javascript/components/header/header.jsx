@@ -24,13 +24,11 @@ class Header extends React.Component {
 
 
     handleLogout() {
-        // let origin = window.location.origin
-        // this.props.logout().then(() => {
+        let origin = window.location.origin
+        this.props.logout().then(() => {
 
-        // window.location.href = origin
-        // })
-
-        this.props.logout()
+            window.location.href = origin
+        })
     }
 
     render() {
