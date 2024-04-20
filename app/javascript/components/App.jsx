@@ -33,6 +33,7 @@ export default () => {
                         <>
                             <HeaderContainer />
                             <LibraryContainer />
+                            <PlayheadContainer />
                         </>
                     ) : (
                         <Navigate to="/" />
@@ -48,8 +49,19 @@ export default () => {
                         </>
                     }
                 />
-                <Route path="/login" element={loggedIn ? <Navigate to="/" /> : <LoginFormContainer />} />
-                <Route path="/signup" element={loggedIn ? <Navigate to="/" /> : <SignupFormContainer />} />
+                <Route path="/login" element={loggedIn ? <Navigate to="/" /> :
+                    <>
+                        <LoginFormContainer />
+                        <PlayheadContainer />
+                    </>
+                } />
+                <Route path="/signup" element={loggedIn ? <Navigate to="/" /> :
+                    <>
+                        <PlayheadContainer />
+                        <SignupFormContainer />
+                    </>
+
+                } />
 
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>

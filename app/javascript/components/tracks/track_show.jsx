@@ -68,6 +68,13 @@ class TrackShow extends React.Component {
         this.props.fetchTrack(this.props.trackId)
     }
 
+    componentWillUnmount() {
+        if (this.waveform) {
+            this.waveform.destroy();
+        }
+
+    }
+
     createLike(e) {
         const trackId = this.props.trackId
         const currentUserId = this.props.currentUser.id
