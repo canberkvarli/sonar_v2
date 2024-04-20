@@ -27,6 +27,29 @@ class TrackShow extends React.Component {
 
 
     componentDidMount() {
+        if (this.props.trackId) {
+            this.props.fetchTrack(this.props.trackId);
+        }
+
+        this.initializeWaveSurfer()
+    }
+
+    componentDidUpdate(prevProps) {
+        // Check if trackId or track data has changed
+        if (prevProps.trackId !== this.props.trackId || prevProps.track !== this.props.track) {
+            // Reinitialize WaveSurfer instance
+            this.initializeWaveSurfer();
+        }
+    }
+
+    componentWillUnmount() {
+        // Clean up the WaveSurfer instance
+        if (this.waveform) {
+            this.waveform.destroy();
+        }
+    }
+
+    initializeWaveSurfer() {
         // Check if WaveSurfer instance already exists
         if (!this.waveform) {
             // Initialize the WaveSurfer instance
@@ -61,17 +84,6 @@ class TrackShow extends React.Component {
                 this.props.playTrack();
                 this.waveform.play();
             });
-        }
-
-        if (this.props.trackId) {
-            this.props.fetchTrack(this.props.trackId);
-        }
-    }
-
-    componentWillUnmount() {
-        // Clean up the WaveSurfer instance
-        if (this.waveform) {
-            this.waveform.destroy();
         }
     }
 
