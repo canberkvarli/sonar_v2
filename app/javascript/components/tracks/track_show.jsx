@@ -16,7 +16,8 @@ class TrackShow extends React.Component {
             track: this.props.track,
             userLikesTrack: this.props.userLikesTrack,
             loggedIn: !!this.props.currentUser,
-            isPlaying: false
+            isPlaying: false,
+            isCurrentTrackPlaying: false,
         }
         this.deleteLike = this.deleteLike.bind(this)
         this.createLike = this.createLike.bind(this)
@@ -83,6 +84,7 @@ class TrackShow extends React.Component {
                 this.props.receivePlayTrack(this.props.track);
                 this.props.playTrack();
                 this.waveform.play();
+                this.setState({ isWaveFormPlaying: true });
             });
         }
     }
@@ -156,19 +158,20 @@ class TrackShow extends React.Component {
     }
 
     handlePlayPause() {
-        if (this.props.isPlaying) {
-            this.props.pauseTrack()
+        if (this.props.isPlaying || this.waveform.isPlaying()) {
+            this.setState({ isCurrentTrackPlaying: false })
             this.waveform.pause()
-        } else if (!this.props.isPlaying) {
-            this.props.playTrack()
+            this.props.pauseTrack()
+        } else if (!this.waveform.isPlaying()) {
+            this.setState({ isCurrentTrackPlaying: true });
             this.waveform.play()
+            this.props.receivePlayTrack(this.props.track);
             this.waveform.setMuted()
+            this.props.playTrack()
         }
     }
 
-
     render() {
-
         const loader = <Oval arialLabel="loading-indicator" color="whitesmoke" type='Oval' width="750" height="120" />
         const { track, currentUser, userLikesTrack, pauseTrack, playTrack, paused, setCurrentProgress, setCurrentTrack, currentTime } = this.props;
 
@@ -180,7 +183,11 @@ class TrackShow extends React.Component {
                 <>
                     <div className="track-banner">
                         <div className="track-banner-left" onClick={this.handlePlayPause}>
-                            <PlayButtonContainer trackId={this.props.trackId} track={this.props.track} />
+                            <PlayButtonContainer
+                                trackId={this.props.trackId}
+                                track={this.props.track}
+                                isCurrentTrackPlaying={this.state.isCurrentTrackPlaying}
+                            />
                             <div className="track-banner-labels">
                                 <h2 className="track-banner-title">{this.props.track.title}</h2>
                                 {/* <h3><Link className="track-banner-uploader" to={`/users/${this.props.track.uploader.id}`}>{this.props.track.uploader.username}</Link></h3> */}

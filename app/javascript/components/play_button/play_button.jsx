@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 
-const PlayButton = ({ currentTrack, trackId, track, receivePlayTrack, playTrack, pauseTrack, isPlaying }) => {
+const PlayButton = ({ currentTrack, trackId, track, receivePlayTrack, playTrack, pauseTrack, isPlaying, isCurrentTrackPlaying }) => {
     const currentPlayingTrack = document.getElementById("current-song");
     let button;
     if (!currentTrack) {
@@ -18,7 +18,7 @@ const PlayButton = ({ currentTrack, trackId, track, receivePlayTrack, playTrack,
                 playTrack();
             }} />
         </div>)
-    } else if (currentTrack.id === parseInt(trackId) && isPlaying) {
+    } else if ((currentTrack.id === parseInt(trackId) && isPlaying)) {
         button = (<div className="track-pause-btn">
             <FontAwesomeIcon icon={faPause} onClick={() => {
                 currentPlayingTrack.pause();
@@ -52,6 +52,13 @@ const PlayButton = ({ currentTrack, trackId, track, receivePlayTrack, playTrack,
             button = (<div className="track-play-btn">
                 <FontAwesomeIcon icon={faPlay} onClick={() => {
                     receivePlayTrack(track);
+                }} />
+            </div>)
+        } else if (isCurrentTrackPlaying) {
+            button = (<div className="track-pause-btn">
+                <FontAwesomeIcon icon={faPause} onClick={() => {
+                    currentPlayingTrack.pause();
+                    pauseTrack();
                 }} />
             </div>)
         }
