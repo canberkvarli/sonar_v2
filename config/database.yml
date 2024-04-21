@@ -22,9 +22,6 @@ default: &default
 development:
   <<: *default
   database: sonar_v2_development
-  username: canberkvarli
-  host: localhost
-  port: 5432
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -84,4 +81,4 @@ production:
   <<: *default
   database: sonar_production
   username: sonar
-  url: <%= ENV['DATABASE_URL'] %>
+  password: <%= ENV['DATABASE_URL'] %>
