@@ -80,11 +80,10 @@ class TrackShow extends React.Component {
                 this.setState({ loading: true });
             });
             this.waveform.on("ready", () => {
-                this.setState({ loading: false });
+                this.setState({ loading: false, isCurrentTrackPlaying: true });
                 this.props.receivePlayTrack(this.props.track);
                 this.props.playTrack();
                 this.waveform.play();
-                this.setState({ isWaveFormPlaying: true });
             });
         }
     }
