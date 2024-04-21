@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay, faPause, faRedoAlt, faVolumeDown } from '@fortawesome/free-solid-svg-icons'
+import { faPlay, faPause, faRedoAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Playhead = ({ track, receivePlayTrack, clearPlayhead, playTrack, pauseTrack }) => {
     const [time, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
-    const [volume, setVolume] = useState(0.4);
     const [interval, setInterval] = useState(null);
 
     const currentTrack = document.getElementById("current-song");
-    currentTrack ? currentTrack.volume = volume : null;
 
     useEffect(() => {
         track ? receivePlayTrack(track) : null;
@@ -49,12 +47,6 @@ const Playhead = ({ track, receivePlayTrack, clearPlayhead, playTrack, pauseTrac
             setCurrentTime(currentTrack.currentTime)
         }, 1000);
         setInterval(intervalId)
-    }
-
-
-
-    const updateVolume = e => {
-        setVolume(e.target.value)
     }
 
     const formatTime = time => {
@@ -126,21 +118,6 @@ const Playhead = ({ track, receivePlayTrack, clearPlayhead, playTrack, pauseTrac
 
                 <div id="track-duration">
                     {formatDuration(duration)}
-                </div>
-
-                <div className="volume">
-                    <div className="volume-container">
-                        <input type="range"
-                            className="volume-bar"
-                            min="0"
-                            max="1"
-                            step="0.1"
-                            value={volume}
-                            onChange={e => updateVolume(e)}
-                        />
-                    </div>
-
-                    <div><FontAwesomeIcon id="volume-btn" icon={faVolumeDown} /></div>
                 </div>
 
                 <div className="playing-track-details">
