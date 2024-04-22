@@ -56,11 +56,12 @@ gem 'net-http'
 # This gem combines the speed of libsass, the Sass C implementation, with the ease of use of the original Ruby Sass library.
 gem 'sassc'
 
+gem 'faker'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'debug', platforms: %i[mri windows]
-  gem 'faker' # Fake data generator
 end
 
 group :test do
