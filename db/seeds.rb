@@ -1,3 +1,5 @@
+require 'faker'
+
 # rubocop:disable Lint/MissingCopEnableDirective
 # rubocop:disable Security/Open
 
