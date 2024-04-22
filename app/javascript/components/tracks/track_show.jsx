@@ -84,6 +84,7 @@ class TrackShow extends React.Component {
                 this.props.receivePlayTrack(this.props.track);
                 this.props.playTrack();
                 this.waveform.play();
+                this.waveform.setMuted({ muted: true })
             });
         }
     }
@@ -158,15 +159,17 @@ class TrackShow extends React.Component {
 
     handlePlayPause() {
         if (this.props.isPlaying || this.waveform.isPlaying()) {
-            this.setState({ isCurrentTrackPlaying: false })
-            this.waveform.pause()
-            this.props.pauseTrack()
+            this.setState({ isCurrentTrackPlaying: false });
+            this.waveform.pause();
+            this.props.pauseTrack();
+            this.props.pauseTrackOnShow(); // Dispatch the pause action for the track show
         } else if (!this.waveform.isPlaying()) {
             this.setState({ isCurrentTrackPlaying: true });
-            this.waveform.play()
             this.props.receivePlayTrack(this.props.track);
-            this.waveform.setMuted()
-            this.props.playTrack()
+            this.waveform.setMuted({ muted: true });
+            this.waveform.play();
+            this.props.playTrack();
+            this.props.playTrackOnShow(); // Dispatch the play action for the track show
         }
     }
 

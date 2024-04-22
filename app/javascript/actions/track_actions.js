@@ -5,6 +5,8 @@ export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const REMOVE_TRACK = "REMOVE_TRACK";
 export const RECEIVE_MAIN_TRACK = "RECEIVE_MAIN_TRACK";
 export const UPLOAD_TRACK = "UPLOAD_TRACK";
+export const PLAY_TRACK_ON_SHOW = "PLAY_TRACK_ON_SHOW";
+export const PAUSE_TRACK_ON_SHOW = "PAUSE_TRACK_ON_SHOW";
 
 // regular actions
 
@@ -26,6 +28,14 @@ const removeTrack = (trackId) => ({
 export const receiveMainTrack = (track) => ({
   type: RECEIVE_MAIN_TRACK,
   track,
+});
+
+export const playTrackOnShow = () => ({
+  type: PLAY_TRACK_ON_SHOW,
+});
+
+export const pauseTrackOnShow = () => ({
+  type: PAUSE_TRACK_ON_SHOW,
 });
 
 //thunk actions

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchTrack, fetchTracks, setMainTrack } from "../../actions/track_actions";
+import { fetchTrack, fetchTracks, setMainTrack, playTrackOnShow, pauseTrackOnShow } from "../../actions/track_actions";
 import { createLike, deleteLike } from "../../actions/like_actions";
 import { fetchUser } from "../../actions/user_actions";
 import { pauseTrack, playTrack, receivePlayTrack } from "../../actions/playhead_actions";
@@ -73,6 +73,8 @@ const mDTP = dispatch => {
     pauseTrack: () => dispatch(pauseTrack()),
     setMainTrack: (track) => dispatch(setMainTrack(track)),
     receivePlayTrack: (track) => dispatch(receivePlayTrack(track)),
+    playTrackOnShow: () => dispatch(playTrackOnShow()),
+    pauseTrackOnShow: () => dispatch(pauseTrackOnShow()),
   }
 
 }
