@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faPause, faRedoAlt } from '@fortawesome/free-solid-svg-icons'
 
-const Playhead = ({ track, receivePlayTrack, clearPlayhead, playTrack, pauseTrack }) => {
+const Playhead = ({ track, receivePlayTrack, clearPlayhead, playTrack, pauseTrack, isTrackPlayingOnShow }) => {
     const [time, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const [interval, setInterval] = useState(null);
@@ -20,13 +20,23 @@ const Playhead = ({ track, receivePlayTrack, clearPlayhead, playTrack, pauseTrac
         return () => clearInterval(interval)
     })
 
+    useEffect(() => {
+        // If isTrackPlayingOnShow is true, play the current track
+        if (isTrackPlayingOnShow) {
+            playCurrentTrack();
+        } else {
+            // If isTrackPlayingOnShow is false, pause the current track
+            pauseCurrentTrack();
+        }
+    }, [isTrackPlayingOnShow]);    
+
     const playCurrentTrack = () => {
-        currentTrack.play();
+        currentTrack?.play();
         playTrack();
     };
 
     const pauseCurrentTrack = () => {
-        currentTrack.pause();
+        currentTrack?.pause();
         pauseTrack();
     };
 

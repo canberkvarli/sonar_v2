@@ -3,7 +3,8 @@ import Playhead from "./playhead";
 import { receivePlayTrack, clearPlayhead, playTrack, pauseTrack } from "../../actions/playhead_actions";
 
 const mSTP = state => ({
-    track: state.playhead.currentTrack
+    track: state.playhead.currentTrack,
+    isTrackPlayingOnShow: state.entities.tracks.isTrackShowPlaying
 });
 
 const mDTP = dispatch => ({

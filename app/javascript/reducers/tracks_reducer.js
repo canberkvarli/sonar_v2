@@ -23,6 +23,7 @@ const tracksReducer = (oldState = {}, action) => {
       return nextState;
     case PAUSE_TRACK_ON_SHOW:
       nextState["isTrackShowPlaying"] = false;
+      return nextState;
     default:
       return oldState;
   }
