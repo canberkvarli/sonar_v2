@@ -15,6 +15,7 @@ puts '🧘 Creating users...'
   User.create!({
                  username: Faker::Internet.unique.username,
                  password_digest: 'password',
+                 password: BCrypt::Password.create('password'),
                  artist_name: Faker::Music.unique.band,
                  age: rand(18..35),
                  bio: Faker::Lorem.paragraph,
