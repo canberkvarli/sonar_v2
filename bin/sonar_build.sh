@@ -3,7 +3,6 @@
 set -o errexit
 
 # Add build commands for front end
-rm -rf public
 npm install && npm run build
 
 bundle install

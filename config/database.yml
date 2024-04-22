@@ -80,4 +80,4 @@ test:
 production:
   <<: *default
   database: sonar_production
-  username: sonar
+  url: <%%= ENV['DATABASE_URL'] %>
