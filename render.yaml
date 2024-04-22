@@ -1,0 +1,18 @@
+databases:
+  - name: sonar
+    databaseName: sonar_production
+    user: sonar
+
+services:
+  - type: web
+    name: sonar
+    runtime: ruby
+    buildCommand: "./bin/sonar-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: sonar
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
