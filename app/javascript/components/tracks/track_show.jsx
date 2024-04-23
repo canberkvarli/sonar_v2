@@ -14,27 +14,33 @@ const TrackShow = (props) => {
     const waveformRef = useRef(null);
 
     useEffect(() => {
-        if (trackId) {
-            fetchTrack(trackId);
+        // Clean up the existing WaveSurfer instance if it exists
+        if (waveformRef.current) {
+            waveformRef.current.destroy();
+            waveformRef.current = null;
         }
 
-        initializeWaveSurfer();
+        // Initialize WaveSurfer only if track is available
+        if (track) {
+            initializeWaveSurfer();
+        }
 
+        // Clean up when the component unmounts
         return () => {
-            // Clean up the WaveSurfer instance
             if (waveformRef.current) {
                 waveformRef.current.destroy();
             }
         };
-    }, [trackId, track]);
+    }, [track]); // Depend on track prop changes
+
 
     useEffect(() => {
-        if (props.isTrackPlayingOnShow && track) {
+        if (props.isTrackPlayingOnShow) {
             handlePlay();
-        } else if (!props.isTrackPlayingOnShow && track) {
+        } else if (!props.isTrackPlayingOnShow) {
             handlePause();
         }
-    }, [props.isTrackPlayingOnShow, track]);
+    }, [props.isTrackPlayingOnShow, props.isPlaying]);
 
 
     const initializeWaveSurfer = () => {
