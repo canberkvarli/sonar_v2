@@ -42,13 +42,11 @@ const Playhead = ({
     const playCurrentTrack = () => {
         currentTrack?.play();
         playTrack();
-        playTrackOnShow();
     };
 
     const pauseCurrentTrack = () => {
         currentTrack?.pause();
         pauseTrack();
-        pauseTrackOnShow();
     };
 
     const replayTrack = () => {

@@ -31,16 +31,15 @@ const TrackShow = (props) => {
                 waveformRef.current.destroy();
             }
         };
-    }, [track]); // Depend on track prop changes
-
+    }, [track]);
 
     useEffect(() => {
-        if (props.isTrackPlayingOnShow) {
+        if (props.isPlaying) {
             handlePlay();
-        } else if (!props.isTrackPlayingOnShow) {
+        } else if (!props.isPlaying) {
             handlePause();
         }
-    }, [props.isTrackPlayingOnShow, props.isPlaying]);
+    }, [props.isPlaying]);
 
 
     const initializeWaveSurfer = () => {
