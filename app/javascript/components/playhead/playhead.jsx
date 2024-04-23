@@ -3,7 +3,16 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faPause, faRedoAlt } from '@fortawesome/free-solid-svg-icons'
 
-const Playhead = ({ track, receivePlayTrack, clearPlayhead, playTrack, pauseTrack, isTrackPlayingOnShow }) => {
+const Playhead = ({
+    track,
+    receivePlayTrack,
+    clearPlayhead,
+    playTrack,
+    pauseTrack,
+    isTrackPlayingOnShow,
+    playTrackOnShow,
+    pauseTrackOnShow,
+}) => {
     const [time, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const [interval, setInterval] = useState(null);
@@ -28,21 +37,24 @@ const Playhead = ({ track, receivePlayTrack, clearPlayhead, playTrack, pauseTrac
             // If isTrackPlayingOnShow is false, pause the current track
             pauseCurrentTrack();
         }
-    }, [isTrackPlayingOnShow]);    
+    }, [isTrackPlayingOnShow]);
 
     const playCurrentTrack = () => {
         currentTrack?.play();
         playTrack();
+        playTrackOnShow();
     };
 
     const pauseCurrentTrack = () => {
         currentTrack?.pause();
         pauseTrack();
+        pauseTrackOnShow();
     };
 
     const replayTrack = () => {
         currentTrack.currentTime = 0;
         currentTrack.play();
+        pauseCurrentTrack();
     }
 
     const updateProgressBar = () => {

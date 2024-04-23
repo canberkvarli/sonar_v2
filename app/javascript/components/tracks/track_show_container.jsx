@@ -53,7 +53,8 @@ const mSTP = (state) => {
     userLikesTrack: userLikesTrack,
     currentLikeId,
     currentTime: state.playhead.currentTime,
-    isPlaying: state.playhead.isPlaying
+    isPlaying: state.playhead.isPlaying,
+    isTrackPlayingOnShow: state.entities.tracks.isTrackShowPlaying
   }
 
 }
