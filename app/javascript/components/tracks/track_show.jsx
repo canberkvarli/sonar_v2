@@ -34,12 +34,13 @@ const TrackShow = (props) => {
     }, [track]);
 
     useEffect(() => {
+        // USEFFECT IT NOT LISTENING TO THE CHANGES IN THE REDUX STORE, e.g. isPlaying
         if (props.isPlaying) {
             handlePlay();
-        } else if (!props.isPlaying) {
+        } else {
             handlePause();
         }
-    }, [props.isPlaying]);
+    }, [props.isPlaying, props.isTrackPlayingOnShow]);
 
 
     const initializeWaveSurfer = () => {
