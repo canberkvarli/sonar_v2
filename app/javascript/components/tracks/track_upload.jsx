@@ -15,8 +15,6 @@ export default class TrackUpload extends React.Component {
         this.updateAudio = this.updateAudio.bind(this)
         this.updateImage = this.updateImage.bind(this)
         this.handleBack = this.handleBack.bind(this)
-        console.log(this.props)
-        console.log(this.state)
     }
 
 

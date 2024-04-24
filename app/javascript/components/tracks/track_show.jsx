@@ -35,13 +35,16 @@ const TrackShow = (props) => {
     }, [track]);
 
     const isPlaying = useSelector(state => state.playhead.isPlaying);
+    const isTrackPlayingOnShow = useSelector(
+        (state) => state.playhead.isTrackPlayingOnShow
+    );
     useEffect(() => {
         if (isPlaying) {
             handlePlay();
         } else {
             handlePause();
         }
-    }, [isPlaying]);
+    }, [isPlaying, isTrackPlayingOnShow]);
 
 
     const initializeWaveSurfer = () => {
