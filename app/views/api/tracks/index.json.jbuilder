@@ -14,15 +14,15 @@
         end
       end
     end
-  end
 
-  json.set! :comments do
-    track.comments.each do |comment|
-      json.set! comment.id do
-        json.extract! comment, :id, :track_id, :commenter_id, :body, :created_at
-        json.commenter_id comment.commenter_id
-        json.body comment.body
-        json.created_at comment.created_at
+    json.set! :comments do
+      track.comments.each do |comment|
+        json.set! comment.id do
+          json.extract! comment, :id, :track_id, :commenter_id, :body, :created_at
+          json.commenter_id comment.commenter_id
+          json.body comment.body
+          json.created_at comment.created_at
+        end
       end
     end
   end

@@ -29,6 +29,14 @@ class Track < ApplicationRecord
            through: :likes,
            source: :liker
 
+  has_many :comments,
+           class_name: :Comment,
+           foreign_key: :track_id
+
+  has_many :commenters,
+           through: :comments,
+           source: :commenter
+
   def self.track_num_likes
     tracks_with_likes = Track
                         .select('tracks.*, COUNT(*) AS num_likes')

@@ -112,4 +112,25 @@ track_titles.each_with_index do |title, i|
   track.audio.attach(io: audio_file, filename: "audio_#{i + 1}.mp3")
 
   track.save
+
+  comments_per_track = 3
+
+  Track.all.each do |track|
+    comments_per_track.times do
+      # Select a random user to serve as the commenter
+      commenter = User.order('RANDOM()').first
+
+      # Create a comment for the track with the random user as the commenter
+      comment = Comment.new(
+        track_id: track.id,
+        commenter_id: commenter.id,
+        body: Faker::Lorem.sentence
+      )
+
+      comment.save
+      puts "Comment added to track #{track.title} by #{commenter.username}"
+    end
+  end
+
+  puts 'Comments created.'
 end
