@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Link, Redirect } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 export default class TrackUpload extends React.Component {
     constructor(props) {
@@ -216,7 +216,7 @@ export default class TrackUpload extends React.Component {
             )
         }
         else if (this.state.submitted) {
-            return <Redirect to='/' />
+            return <Navigate to='/' />
         }
     }
 }

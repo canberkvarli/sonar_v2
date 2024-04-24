@@ -5,6 +5,7 @@ import Splash from "../components/splash/splash";
 import HeaderContainer from "./header/header_container";
 import TrackIndexContainer from "../components/tracks/track_index_container";
 import TrackShowContainer from "../components/tracks/track_show_container";
+import TrackUploadContainer from "../components/tracks/track_upload_container";
 import LoginFormContainer from "../components/session_form/login_form_container";
 import SignupFormContainer from "../components/session_form/signup_form_container";
 import PlayheadContainer from "../components/playhead/playhead_container";
@@ -49,6 +50,21 @@ export default () => {
                                 <TrackShowContainer />
                                 <PlayheadContainer />
                             </>
+                        }
+                    />
+
+                    <Route
+                        path="/upload"
+                        element={
+                            loggedIn ? (
+                                <>
+                                    <HeaderContainer />
+                                    <TrackUploadContainer />
+                                    <PlayheadContainer />
+                                </>
+                            ) : (
+                                <Navigate to="/" />
+                            )
                         }
                     />
                     <Route path="/login" element={loggedIn ? <Navigate to="/" /> :
