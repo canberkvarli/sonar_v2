@@ -12,12 +12,11 @@ const TrackShow = (props) => {
     const [userLikesTrack, setUserLikesTrack] = useState(initialUserLikesTrack);
     const [loading, setLoading] = useState(false);
     const [isCurrentTrackPlaying, setIsCurrentTrackPlaying] = useState(false);
+    const [commenters, setCommenters] = useState({});
+    const [commentsArray, setComments] = useState([]);
     const waveformRef = useRef(null);
 
     useEffect(() => {
-    if (track) {
-            fetchComments(trackId)
-        }
         // Clean up the existing WaveSurfer instance if it exists
         if (waveformRef.current) {
             waveformRef.current.destroy();
@@ -36,6 +35,31 @@ const TrackShow = (props) => {
             }
         };
     }, [track]);
+
+    useEffect(() => {
+        // Fetch comments when track is available
+        if (track) {
+            fetchComments(trackId);
+        }
+
+        setComments(() => Object.values(comments))
+
+        // TODO FIX: FIND THE COMMENTER FROM THE RESPONSE (comments)
+        // Fetch data for each commenter
+        const fetchCommentersData = async () => {
+            const fetchedCommenters = {};
+            for (let comment of comments) {
+                const commenterId = comment.commenterId;
+                if (!commenters[commenterId]) {
+                    const commenterData = await fetchUser(commenterId);
+                    fetchedCommenters[commenterId] = commenterData.username;
+                }
+            }
+            setCommenters(fetchedCommenters);
+        };
+
+        fetchCommentersData();
+    }, [track, fetchComments, fetchUser, trackId, comments]);
 
     const isPlaying = useSelector(state => state.playhead.isPlaying);
     const isTrackPlayingOnShow = useSelector(
@@ -220,6 +244,18 @@ const TrackShow = (props) => {
                 </div>
                 <hr className='container-line' />
             </div>
+            <div className="comments-section">
+                <h3>Comments</h3>
+                <ul>
+                    {commentsArray.map(comment => (
+                        <li key={comment.id}>
+                            <strong>{commenters[comment.commenterId]}</strong>: {comment.body}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+
         </>
     );
 };
