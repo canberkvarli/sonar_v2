@@ -3,15 +3,10 @@
 # Table name: likes
 #
 #  id         :bigint           not null, primary key
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
 #  liker_id   :integer          not null
 #  track_id   :integer          not null
-#
-# Indexes
-#
-#  index_likes_on_liker_id  (liker_id)
-#  index_likes_on_track_id  (track_id)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 require 'test_helper'
 

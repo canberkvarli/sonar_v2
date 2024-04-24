@@ -3,22 +3,18 @@
 # Table name: users
 #
 #  id              :bigint           not null, primary key
-#  age             :integer
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
 #  artist_name     :string
+#  age             :integer
 #  bio             :string
 #  city            :string
 #  country         :string
 #  first_name      :string
 #  last_name       :string
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  username        :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#
-# Indexes
-#
-#  index_users_on_username_and_artist_name  (username,artist_name)
 #
 
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
