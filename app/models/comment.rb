@@ -10,13 +10,13 @@
 #  updated_at   :datetime         not null
 #
 class Comment < ApplicationRecord
-  belongs_to :user
-  foreign_key :commenter_id
-  class_name :User
+  belongs_to :user,
+             foreign_key: :commenter_id,
+             class_name: :User
 
-  belongs_to :track
-  foreign_key :track_id
-  class_name :Track
+  belongs_to :track,
+             foreign_key: :track_id,
+             class_name: :Track
 
   validates :body, presence: true
 end
