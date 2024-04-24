@@ -8,7 +8,7 @@ import { Oval } from "react-loader-spinner";
 import { useSelector } from 'react-redux';
 
 const TrackShow = (props) => {
-    const { trackId, fetchTrack, track, userLikesTrack: initialUserLikesTrack, currentUser, receivePlayTrack, playTrack, playTrackOnShow, pauseTrack, pauseTrackOnShow, createLike, deleteLike, fetchUser } = props;
+    const { trackId, fetchTrack, track, userLikesTrack: initialUserLikesTrack, currentUser, receivePlayTrack, playTrack, playTrackOnShow, pauseTrack, pauseTrackOnShow, createLike, deleteLike, fetchUser, fetchComments } = props;
     const [userLikesTrack, setUserLikesTrack] = useState(initialUserLikesTrack);
     const [loading, setLoading] = useState(false);
     const [isCurrentTrackPlaying, setIsCurrentTrackPlaying] = useState(false);
@@ -45,7 +45,6 @@ const TrackShow = (props) => {
             handlePause();
         }
     }, [isPlaying, isTrackPlayingOnShow]);
-
 
     const initializeWaveSurfer = () => {
         if (!waveformRef.current) {

@@ -1,7 +1,7 @@
 import * as APIUtil from "../util/like_api_util";
 
 
-export const RECEIVE_LIKE = "RECEIVE_LIKE";
+export const RECEIVE_LIKE = "w";
 export const DELETE_LIKE = "REMOVE_LIKE";
 
 export const receiveLike = (track) => ({ type: RECEIVE_LIKE, track });

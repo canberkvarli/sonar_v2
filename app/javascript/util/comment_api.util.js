@@ -36,3 +36,23 @@ export const deleteComment = async (commentId, trackId) => {
     throw error;
   }
 };
+
+export const fetchComments = async (trackId) => {
+  try {
+    const response = await fetch(`/api/tracks/${trackId}/comments`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch comments");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching comments:", error);
+    throw error;
+  }
+};
