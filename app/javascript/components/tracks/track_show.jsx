@@ -15,6 +15,11 @@ const TrackShow = (props) => {
     const waveformRef = useRef(null);
 
     useEffect(() => {
+        if (track) {
+            fetchComments(trackId).then((comments) => {
+                console.log(comments)
+            });
+        }
         // Clean up the existing WaveSurfer instance if it exists
         if (waveformRef.current) {
             waveformRef.current.destroy();
@@ -38,6 +43,7 @@ const TrackShow = (props) => {
     const isTrackPlayingOnShow = useSelector(
         (state) => state.playhead.isTrackPlayingOnShow
     );
+
     useEffect(() => {
         if (isPlaying) {
             handlePlay();
