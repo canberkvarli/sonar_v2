@@ -49,7 +49,6 @@ const mSTP = (state) => {
     currentUser: state.entities.users[state.session.id],
     trackId: trackId,
     track: state.entities.tracks[trackId],
-    // trackUrl: (trackLoaded() ? tracks[trackId].trackUrl : ''),
     userLikesTrack: userLikesTrack,
     currentLikeId,
     currentTime: state.playhead.currentTime,

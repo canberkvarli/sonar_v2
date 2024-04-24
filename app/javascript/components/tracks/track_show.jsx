@@ -5,6 +5,7 @@ import PlayButtonContainer from "../play_button/play_button_container";
 import { WaveformContainer } from '../tracks/waveform_container';
 import WaveSurfer from 'wavesurfer.js';
 import { Oval } from "react-loader-spinner";
+import { useSelector } from 'react-redux';
 
 const TrackShow = (props) => {
     const { trackId, fetchTrack, track, userLikesTrack: initialUserLikesTrack, currentUser, receivePlayTrack, playTrack, playTrackOnShow, pauseTrack, pauseTrackOnShow, createLike, deleteLike, fetchUser } = props;
@@ -33,14 +34,14 @@ const TrackShow = (props) => {
         };
     }, [track]);
 
+    const isPlaying = useSelector(state => state.playhead.isPlaying);
     useEffect(() => {
-        // USEFFECT IT NOT LISTENING TO THE CHANGES IN THE REDUX STORE, e.g. isPlaying
-        if (props.isPlaying) {
+        if (isPlaying) {
             handlePlay();
         } else {
             handlePause();
         }
-    }, [props.isPlaying, props.isTrackPlayingOnShow]);
+    }, [isPlaying]);
 
 
     const initializeWaveSurfer = () => {
