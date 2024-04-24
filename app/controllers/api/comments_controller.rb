@@ -1,5 +1,5 @@
 module Api
-  class Comments < ApplicationController
+  class CommentsController < ApplicationController
     def index
       @comments = Comment.all
     end
