@@ -6,6 +6,7 @@ import { WaveformContainer } from '../tracks/waveform_container';
 import WaveSurfer from 'wavesurfer.js';
 import { Oval } from "react-loader-spinner";
 import { useSelector } from 'react-redux';
+import { formatDistanceToNow } from 'date-fns';
 
 const TrackShow = (props) => {
     const { trackId, fetchTrack, track, userLikesTrack: initialUserLikesTrack, currentUser, receivePlayTrack, playTrack, playTrackOnShow, pauseTrack, pauseTrackOnShow, createLike, deleteLike, fetchUser, fetchComments, comments } = props;
@@ -225,16 +226,18 @@ const TrackShow = (props) => {
                 </div>
                 <hr className='container-line' />
             </div>
-            <div className="comments-section">
-                <h3>Comments</h3>
+            <div className="commentList">
                 <ul>
                     {Object.values(comments).map((comment) => {
                         const { id, body, createdAt, username } = comment;
+                        const relativeTime = formatDistanceToNow(createdAt, { addSuffix: true });
                         return (
-                            <li key={id}>
-                                <div><strong>{username}</strong> commented:</div>
+                            <li className="commentList-item p-2 ps-5 pt-3" key={id}>
+                                <div className="commentItemInfo pe-2">
+                                    <strong className='commentItemInfo-username pe-2'>{username}</strong>
+                                    <small className='commentItemInfo-time'>{relativeTime}</small>
+                                </div>
                                 <p>{body}</p>
-                                <small>Posted at: {new Date(createdAt).toLocaleString()}</small>
                             </li>
                         );
                     })}
