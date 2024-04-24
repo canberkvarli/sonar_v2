@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users do
       resources :likes, only: [:index]
-      reosurces :comments, only: [:index]
+      resources :comments, only: [:index]
     end
 
     resources :tracks, only: %i[index create show destroy] do
