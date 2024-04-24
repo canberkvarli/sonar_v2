@@ -50,7 +50,9 @@ export const fetchComments = async (trackId) => {
       throw new Error("Failed to fetch comments");
     }
 
-    return await response.json();
+    const jsonData = await response.json();
+
+    return jsonData;
   } catch (error) {
     console.error("Error fetching comments:", error);
     throw error;

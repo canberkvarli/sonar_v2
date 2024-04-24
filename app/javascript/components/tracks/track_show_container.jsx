@@ -24,6 +24,8 @@ const mSTP = (state) => {
     }
   }
 
+  const comments = tracks ? state.entities.tracks[trackId].comments : null;
+
   if (state.session.id) {  // if there is a current session
 
     currentUser = state.entities.users[state.session.id];
@@ -54,7 +56,8 @@ const mSTP = (state) => {
     currentLikeId,
     currentTime: state.playhead.currentTime,
     isPlaying: state.playhead.isPlaying,
-    isTrackPlayingOnShow: state.entities.tracks.isTrackShowPlaying
+    isTrackPlayingOnShow: state.entities.tracks.isTrackShowPlaying,
+    comments: comments
   }
 
 }

@@ -8,17 +8,15 @@ import { Oval } from "react-loader-spinner";
 import { useSelector } from 'react-redux';
 
 const TrackShow = (props) => {
-    const { trackId, fetchTrack, track, userLikesTrack: initialUserLikesTrack, currentUser, receivePlayTrack, playTrack, playTrackOnShow, pauseTrack, pauseTrackOnShow, createLike, deleteLike, fetchUser, fetchComments } = props;
+    const { trackId, fetchTrack, track, userLikesTrack: initialUserLikesTrack, currentUser, receivePlayTrack, playTrack, playTrackOnShow, pauseTrack, pauseTrackOnShow, createLike, deleteLike, fetchUser, fetchComments, comments } = props;
     const [userLikesTrack, setUserLikesTrack] = useState(initialUserLikesTrack);
     const [loading, setLoading] = useState(false);
     const [isCurrentTrackPlaying, setIsCurrentTrackPlaying] = useState(false);
     const waveformRef = useRef(null);
 
     useEffect(() => {
-        if (track) {
-            fetchComments(trackId).then((comments) => {
-                console.log(comments)
-            });
+    if (track) {
+            fetchComments(trackId)
         }
         // Clean up the existing WaveSurfer instance if it exists
         if (waveformRef.current) {
