@@ -1,4 +1,3 @@
-# json.array! @tracks do |track|
 @tracks.each do |track|
   json.set! track.id do
     json.extract! track, :id, :title, :artist_id
@@ -19,7 +18,8 @@
       track.comments.each do |comment|
         json.set! comment.id do
           json.extract! comment, :id, :track_id, :commenter_id, :body, :created_at
-          json.commenter_id comment.commenter_id
+          user = comment.user
+          json.username user.username if user
           json.body comment.body
           json.created_at comment.created_at
         end

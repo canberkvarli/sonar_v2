@@ -12,7 +12,6 @@ const TrackShow = (props) => {
     const [userLikesTrack, setUserLikesTrack] = useState(initialUserLikesTrack);
     const [loading, setLoading] = useState(false);
     const [isCurrentTrackPlaying, setIsCurrentTrackPlaying] = useState(false);
-    const [commenters, setCommenters] = useState([]);
     const waveformRef = useRef(null);
 
     useEffect(() => {
@@ -230,11 +229,10 @@ const TrackShow = (props) => {
                 <h3>Comments</h3>
                 <ul>
                     {Object.values(comments).map((comment) => {
-                        const { id, body, createdAt, commenterId } = comment;
-                        // const username = fetchUser(commenterId);
+                        const { id, body, createdAt, username } = comment;
                         return (
                             <li key={id}>
-                                <div><strong>{ }</strong> commented:</div>
+                                <div><strong>{username}</strong> commented:</div>
                                 <p>{body}</p>
                                 <small>Posted at: {new Date(createdAt).toLocaleString()}</small>
                             </li>
