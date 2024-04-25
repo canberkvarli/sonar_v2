@@ -145,7 +145,6 @@ const TrackShow = (props) => {
 
     const handleCreateComment = async (event) => {
         const currentUserId = currentUser.id;
-
         if (event.type === 'keypress' && event.key !== 'Enter') {
             return;
         }
@@ -252,7 +251,11 @@ const TrackShow = (props) => {
                     onChange={(e) => setCommentBody(e.target.value)}
                     onKeyPress={handleCreateComment}
                 />
-                <button onClick={handleCreateComment}>
+                <button
+                    className={`createComment-btn ${commentBody.trim() !== "" ? "enabled" : ""}`}
+                    onClick={handleCreateComment}
+                    disabled={commentBody.trim() === ""}>
+
                     <BsSend
                         style={{
                             marginLeft: "15px",
