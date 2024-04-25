@@ -24,7 +24,7 @@ const mSTP = (state) => {
     }
   }
 
-  const comments = tracks ? state.entities.tracks[trackId].comments : null;
+  const comments = tracks ? state.entities.tracks[trackId]?.comments : null;
 
   if (state.session.id) {  // if there is a current session
 
