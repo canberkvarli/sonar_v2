@@ -10,10 +10,11 @@ import { useSelector } from 'react-redux';
 import { formatDistanceToNow } from 'date-fns';
 
 const TrackShow = (props) => {
-    const { trackId, fetchTrack, track, userLikesTrack: initialUserLikesTrack, currentUser, receivePlayTrack, playTrack, playTrackOnShow, pauseTrack, pauseTrackOnShow, createLike, deleteLike, fetchUser, fetchComments, comments } = props;
+    const { trackId, fetchTrack, track, userLikesTrack: initialUserLikesTrack, currentUser, receivePlayTrack, playTrack, playTrackOnShow, pauseTrack, pauseTrackOnShow, createLike, deleteLike, fetchUser, fetchComments, comments, createComment, deleteComment } = props;
     const [userLikesTrack, setUserLikesTrack] = useState(initialUserLikesTrack);
     const [loading, setLoading] = useState(false);
     const [isCurrentTrackPlaying, setIsCurrentTrackPlaying] = useState(false);
+    const [commentBody, setCommentBody] = useState("");
     const waveformRef = useRef(null);
 
     useEffect(() => {
@@ -142,6 +143,29 @@ const TrackShow = (props) => {
         setUserLikesTrack(false);
     };
 
+    const handleCreateComment = (event) => {
+        // Check if the key pressed is the Enter key
+        if (event.key === 'Enter') {
+            // Prevent the default action (form submission)
+            event.preventDefault();
+
+            // Get the current user's ID
+            const currentUserId = currentUser.id;
+
+            // Dispatch the createComment action with the comment data
+            createComment({
+                body: commentBody,
+                commenter_id: currentUserId,
+                track_id: trackId,
+            })
+                .then(() => {
+                    // Clear the input field after creating the comment
+                    setCommentBody("");
+                });
+        }
+    };
+
+
     const toggleLike = () => {
         if (!props.currentUser) {
             return (
@@ -229,7 +253,9 @@ const TrackShow = (props) => {
                     className='commentInput'
                     type="text"
                     placeholder="Write a comment"
-                // onChange={handleCommentChange}
+                    value={commentBody}
+                    onChange={(e) => setCommentBody(e.target.value)}
+                    onKeyPress={handleCreateComment}
                 />
             </div>
             <h1 className="description">{track.description}</h1>
