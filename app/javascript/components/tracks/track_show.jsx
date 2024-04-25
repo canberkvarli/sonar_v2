@@ -181,6 +181,12 @@ const TrackShow = (props) => {
         return track.likes ? Object.keys(track.likes).length : 'Like';
     };
 
+    const dispNumComments = () => {
+        if (!comments) return "No comments yet!";
+        const numOfComments = Object.keys(comments).length;
+        return numOfComments === 1 ? "1 comment" : `${numOfComments} comments`;
+    };
+
     if (!track) {
         return null;
     }
@@ -226,18 +232,21 @@ const TrackShow = (props) => {
                 </div>
                 <hr className='container-line' />
             </div>
-            <div className="commentList">
+            <div className="commentList mb-5">
+                <div className="commentList-header">
+                    <span>{dispNumComments()}</span>
+                </div>
                 <ul>
                     {Object.values(comments).map((comment) => {
                         const { id, body, createdAt, username } = comment;
                         const relativeTime = formatDistanceToNow(createdAt, { addSuffix: true });
                         return (
-                            <li className="commentList-item p-2 ps-5 pt-3" key={id}>
+                            <li className="commentList-item p-4 ps-5 pt-3" key={id}>
                                 <div className="commentItemInfo pe-2">
                                     <strong className='commentItemInfo-username pe-2'>{username}</strong>
                                     <small className='commentItemInfo-time'>{relativeTime}</small>
                                 </div>
-                                <p>{body}</p>
+                                <p className='commentItemInfo-body pt-1'>{body}</p>
                             </li>
                         );
                     })}
