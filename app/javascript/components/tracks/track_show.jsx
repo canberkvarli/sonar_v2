@@ -38,7 +38,6 @@ const TrackShow = (props) => {
     }, [track]);
 
     useEffect(() => {
-        // Fetch comments when track is available
         if (track) {
             fetchComments(trackId);
         }
@@ -143,28 +142,21 @@ const TrackShow = (props) => {
         setUserLikesTrack(false);
     };
 
-    const handleCreateComment = (event) => {
-        // Check if the key pressed is the Enter key
+    const handleCreateComment = async (event) => {
         if (event.key === 'Enter') {
-            // Prevent the default action (form submission)
             event.preventDefault();
 
-            // Get the current user's ID
             const currentUserId = currentUser.id;
 
-            // Dispatch the createComment action with the comment data
-            createComment({
+            await createComment({
                 body: commentBody,
                 commenter_id: currentUserId,
                 track_id: trackId,
-            })
-                .then(() => {
-                    // Clear the input field after creating the comment
-                    setCommentBody("");
-                });
+            });
+
+            setCommentBody("");
         }
     };
-
 
     const toggleLike = () => {
         if (!props.currentUser) {
