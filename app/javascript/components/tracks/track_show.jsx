@@ -159,6 +159,23 @@ const TrackShow = (props) => {
         }
     };
 
+    const handleCreateCommentClick = async () => {
+        console.log("handleCreateCommentClick called");
+        const currentUserId = currentUser.id;
+
+        if (commentBody.trim() !== "") {
+            // Create the comment
+            await createComment({
+                body: commentBody,
+                commenter_id: currentUserId,
+                track_id: trackId,
+            });
+
+            // Clear the commentBody state
+            setCommentBody("");
+        }
+    };
+
     const toggleLike = () => {
         if (!props.currentUser) {
             return (
@@ -250,7 +267,7 @@ const TrackShow = (props) => {
                     onChange={(e) => setCommentBody(e.target.value)}
                     onKeyPress={handleCreateComment}
                 />
-                <button onClick={handleCreateComment}>
+                <button onClick={handleCreateCommentClick}>
                     <BsSend
                         style={{
                             marginLeft: "15px",
