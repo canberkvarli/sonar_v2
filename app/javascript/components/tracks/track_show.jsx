@@ -224,6 +224,14 @@ const TrackShow = (props) => {
                     <img className="track-show-cover-img" src={track.photoUrl} alt="Track Cover" />
                 </div>
             </div>
+            <div className='commentInput-container'>
+                <input
+                    className='commentInput'
+                    type="text"
+                    placeholder="Write a comment"
+                // onChange={handleCommentChange}
+                />
+            </div>
             <h1 className="description">{track.description}</h1>
             <div className='interact-buttons-container'>
                 <div className="track-interact-buttons">

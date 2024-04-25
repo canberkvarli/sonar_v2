@@ -238,14 +238,11 @@
   width: 100px;
 }
 
-.track-banner-bottom {
-}
-
 .commentList {
   top: 2rem;
-  left: 15%;
+  left: 20%;
   display: block;
-  width: 100%;
+  width: 50%;
   height: 100%;
   position: relative;
 
@@ -262,6 +259,25 @@
 
   .commentList-header {
     font-weight: 100;
+    width: fit-content;
     color: #999;
+  }
+}
+.commentInput-container {
+  display: flex;
+  height: 40px;
+  margin-left: 10rem;
+  width: 53%;
+  margin-top: 1.5rem;
+
+  .commentInput {
+    height: 40px;
+    border-radius: 24px;
+    border: none;
+    padding: 0 35px 0 16px;
+    color: #000;
+    font-weight: 100;
+    background: #f3f3f3;
+    width: 160%;
   }
 }
