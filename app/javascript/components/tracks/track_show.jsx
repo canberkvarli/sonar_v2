@@ -144,34 +144,19 @@ const TrackShow = (props) => {
     };
 
     const handleCreateComment = async (event) => {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-
-            const currentUserId = currentUser.id;
-
-            await createComment({
-                body: commentBody,
-                commenter_id: currentUserId,
-                track_id: trackId,
-            });
-
-            setCommentBody("");
-        }
-    };
-
-    const handleCreateCommentClick = async () => {
-        console.log("handleCreateCommentClick called");
         const currentUserId = currentUser.id;
 
+        if (event.type === 'keypress' && event.key !== 'Enter') {
+            return;
+        }
+
         if (commentBody.trim() !== "") {
-            // Create the comment
             await createComment({
                 body: commentBody,
                 commenter_id: currentUserId,
                 track_id: trackId,
             });
 
-            // Clear the commentBody state
             setCommentBody("");
         }
     };
@@ -267,7 +252,7 @@ const TrackShow = (props) => {
                     onChange={(e) => setCommentBody(e.target.value)}
                     onKeyPress={handleCreateComment}
                 />
-                <button onClick={handleCreateCommentClick}>
+                <button onClick={handleCreateComment}>
                     <BsSend
                         style={{
                             marginLeft: "15px",
