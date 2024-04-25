@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom";
 import { FaHeart } from 'react-icons/fa';
 import { FaMessage } from "react-icons/fa6";
+import { BsSend } from "react-icons/bs";
 import PlayButtonContainer from "../play_button/play_button_container";
 import { WaveformContainer } from '../tracks/waveform_container';
 import WaveSurfer from 'wavesurfer.js';
@@ -249,6 +250,16 @@ const TrackShow = (props) => {
                     onChange={(e) => setCommentBody(e.target.value)}
                     onKeyPress={handleCreateComment}
                 />
+                <button onClick={handleCreateComment}>
+                    <BsSend
+                        style={{
+                            marginLeft: "15px",
+                            fontSize: "45px",
+                            paddingLeft: "12px",
+                            paddingBottom: "7px",
+                        }}
+                    />
+                </button>
             </div>
             <h1 className="description">{track.description}</h1>
             <div className='interact-buttons-container'>
