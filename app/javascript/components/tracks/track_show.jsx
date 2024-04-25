@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom";
 import { FaHeart } from 'react-icons/fa';
+import { FaMessage } from "react-icons/fa6";
 import PlayButtonContainer from "../play_button/play_button_container";
 import { WaveformContainer } from '../tracks/waveform_container';
 import WaveSurfer from 'wavesurfer.js';
@@ -234,7 +235,7 @@ const TrackShow = (props) => {
             </div>
             <div className="commentList mb-5">
                 <div className="commentList-header">
-                    <span>{dispNumComments()}</span>
+                    <FaMessage fontSize={"13px"} /><span className='ms-2'>{dispNumComments()}</span>
                 </div>
                 <ul>
                     {Object.values(comments).map((comment) => {
