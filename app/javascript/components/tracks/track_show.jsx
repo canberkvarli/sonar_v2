@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom";
 import { FaHeart } from 'react-icons/fa';
 import { FaMessage } from "react-icons/fa6";
-import { MdDeleteForever } from "react-icons/md";
+import { MdDeleteOutline } from "react-icons/md";
 import { BsSend } from "react-icons/bs";
 import PlayButtonContainer from "../play_button/play_button_container";
 import { WaveformContainer } from '../tracks/waveform_container';
@@ -295,28 +295,33 @@ const TrackShow = (props) => {
                 </div>
                 <ul>
                     {Object.values(comments).map((comment) => {
-                        const { id, body, createdAt, username } = comment;
+                        const { id, body, createdAt, commenterId, username } = comment;
                         const relativeTime = formatDistanceToNow(createdAt, { addSuffix: true });
+                        const isCurrentUserOwner = currentUser && currentUser.id === commenterId;
+
                         return (
-                            <div className='commentList-item-container'>
-                                <li className="commentList-item p-4 ps-5 pt-3" key={id}>
+                            <div className='commentList-item-container' key={id}>
+                                <li className="commentList-item p-4 ps-5 pt-3">
                                     <div className="commentItemInfo pe-2">
                                         <strong className='commentItemInfo-username pe-2'>{username}</strong>
                                         <small className='commentItemInfo-time'>{relativeTime}</small>
                                     </div>
                                     <div className='d-flex '>
                                         <p className='commentItemInfo-body pt-1'>{body}</p>
-                                        <div className='trash-bin'>
-                                            <MdDeleteForever
-                                                style={{ fontSize: "23px", cursor: "pointer" }}
-                                                onClick={() => handleDeleteComment(id)}
-                                            />
-                                        </div>
+                                        {isCurrentUserOwner && (
+                                            <div className='trash-bin' style={{ cursor: "pointer", marginLeft: "5px" }}>
+                                                <MdDeleteOutline
+                                                    style={{ fontSize: "23px" }}
+                                                    onClick={() => handleDeleteComment(id)}
+                                                />
+                                            </div>
+                                        )}
                                     </div>
                                 </li>
                             </div>
                         );
                     })}
+
                 </ul>
             </div>
         </>
