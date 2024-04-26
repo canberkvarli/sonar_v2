@@ -161,21 +161,15 @@ const TrackShow = (props) => {
         }
     };
 
-    // TODO: FIX: Function is running many times
     const handleDeleteComment = (commentId) => {
         event.preventDefault();
         const currentUserId = currentUser.id;
 
-        // Find the comment that matches the provided comment ID
         const comment = comments[commentId];
 
-        // Check if the comment belongs to the current user
-        debugger
         if (comment && comment.commenterId === currentUserId) {
-            // Call the deleteComment action to delete the comment
             deleteComment(commentId, trackId).then(() => {
-                fetchUser(currentUserId); // Refresh user data
-                fetchTrack(trackId); // Refresh track data
+                fetchTrack(trackId);
             });
         }
     };
@@ -315,7 +309,8 @@ const TrackShow = (props) => {
                                         <div className='trash-bin'>
                                             <MdDeleteForever
                                                 style={{ fontSize: "23px", cursor: "pointer" }}
-                                                onClick={handleDeleteComment(id)} />
+                                                onClick={() => handleDeleteComment(id)}
+                                            />
                                         </div>
                                     </div>
                                 </li>
