@@ -1,3 +1,4 @@
+import { RECEIVE_COMMENT, DELETE_COMMENT } from "../actions/comment_actions";
 import {
   RECEIVE_TRACKS,
   REMOVE_TRACK,
@@ -23,6 +24,12 @@ const tracksReducer = (oldState = {}, action) => {
       return nextState;
     case PAUSE_TRACK_ON_SHOW:
       nextState["isTrackShowPlaying"] = false;
+      return nextState;
+    case RECEIVE_COMMENT:
+      nextState[action.track.id] = {
+        ...nextState[action.track.id],
+        ...action.track,
+      };
       return nextState;
     default:
       return oldState;
