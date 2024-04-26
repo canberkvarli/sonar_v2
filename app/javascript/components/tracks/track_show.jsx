@@ -120,7 +120,6 @@ const TrackShow = (props) => {
     };
 
     const handleCreateLike = () => {
-        const trackId = props.trackId;
         const currentUserId = currentUser.id;
 
         createLike({ liker_id: currentUserId, track_id: trackId })
@@ -162,7 +161,6 @@ const TrackShow = (props) => {
     };
 
     const handleDeleteComment = (commentId) => {
-        event.preventDefault();
         const currentUserId = currentUser.id;
 
         const comment = comments[commentId];

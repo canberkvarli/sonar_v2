@@ -12,6 +12,7 @@ const mSTP = (state) => {
 
   let tracks = Object.values(state.entities.tracks)
   let { trackId } = useParams()
+  trackId = parseInt(trackId)
   let currentLikeId;
   let currentUser;
   let userLikesTrack;
@@ -81,7 +82,7 @@ const mDTP = dispatch => {
     pauseTrackOnShow: () => dispatch(pauseTrackOnShow()),
     fetchComments: (trackId) => dispatch(fetchComments(trackId)),
     createComment: (comment) => dispatch(createComment(comment)),
-    deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+    deleteComment: (commentId, trackId) => dispatch(deleteComment(commentId, trackId)),
   }
 
 }

@@ -30,6 +30,14 @@ const tracksReducer = (oldState = {}, action) => {
         ...nextState[action.track.id],
         ...action.track,
       };
+    case DELETE_COMMENT:
+      const track = nextState[action.trackId];
+
+      if (track && track.comments) {
+        track.comments = Object.values(track.comments).filter(
+          (comment) => comment.id !== action.commentId
+        );
+      }
       return nextState;
     default:
       return oldState;
