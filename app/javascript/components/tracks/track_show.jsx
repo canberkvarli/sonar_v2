@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom";
 import { FaHeart } from 'react-icons/fa';
 import { FaMessage } from "react-icons/fa6";
+import { MdDeleteForever } from "react-icons/md";
 import { BsSend } from "react-icons/bs";
 import PlayButtonContainer from "../play_button/play_button_container";
 import { WaveformContainer } from '../tracks/waveform_container';
@@ -160,6 +161,25 @@ const TrackShow = (props) => {
         }
     };
 
+    // TODO: FIX: Function is running many times
+    const handleDeleteComment = (commentId) => {
+        event.preventDefault();
+        const currentUserId = currentUser.id;
+
+        // Find the comment that matches the provided comment ID
+        const comment = comments[commentId];
+
+        // Check if the comment belongs to the current user
+        debugger
+        if (comment && comment.commenterId === currentUserId) {
+            // Call the deleteComment action to delete the comment
+            deleteComment(commentId, trackId).then(() => {
+                fetchUser(currentUserId); // Refresh user data
+                fetchTrack(trackId); // Refresh track data
+            });
+        }
+    };
+
     const toggleLike = () => {
         if (!props.currentUser) {
             return (
@@ -284,13 +304,22 @@ const TrackShow = (props) => {
                         const { id, body, createdAt, username } = comment;
                         const relativeTime = formatDistanceToNow(createdAt, { addSuffix: true });
                         return (
-                            <li className="commentList-item p-4 ps-5 pt-3" key={id}>
-                                <div className="commentItemInfo pe-2">
-                                    <strong className='commentItemInfo-username pe-2'>{username}</strong>
-                                    <small className='commentItemInfo-time'>{relativeTime}</small>
-                                </div>
-                                <p className='commentItemInfo-body pt-1'>{body}</p>
-                            </li>
+                            <div className='commentList-item-container'>
+                                <li className="commentList-item p-4 ps-5 pt-3" key={id}>
+                                    <div className="commentItemInfo pe-2">
+                                        <strong className='commentItemInfo-username pe-2'>{username}</strong>
+                                        <small className='commentItemInfo-time'>{relativeTime}</small>
+                                    </div>
+                                    <div className='d-flex '>
+                                        <p className='commentItemInfo-body pt-1'>{body}</p>
+                                        <div className='trash-bin'>
+                                            <MdDeleteForever
+                                                style={{ fontSize: "23px", cursor: "pointer" }}
+                                                onClick={handleDeleteComment(id)} />
+                                        </div>
+                                    </div>
+                                </li>
+                            </div>
                         );
                     })}
                 </ul>

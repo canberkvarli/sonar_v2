@@ -292,3 +292,17 @@
   opacity: 1;
   cursor: pointer;
 }
+
+.commentList-item-container {
+  position: relative;
+  padding: 4px 5px 3px 5px;
+  transition: background-color 0.2s ease;
+}
+
+.commentList-item-container .trash-bin {
+  display: none;
+}
+
+.commentList-item-container:hover .trash-bin {
+  display: block;
+}
