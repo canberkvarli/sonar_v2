@@ -254,30 +254,32 @@ const TrackShow = (props) => {
                     <img className="track-show-cover-img" src={track.photoUrl} alt="Track Cover" />
                 </div>
             </div>
-            <div className='commentInput-container'>
-                <input
-                    className='commentInput'
-                    type="text"
-                    placeholder="Write a comment"
-                    value={commentBody}
-                    onChange={(e) => setCommentBody(e.target.value)}
-                    onKeyPress={handleCreateComment}
-                />
-                <button
-                    className={`createComment-btn ${commentBody.trim() !== "" ? "enabled" : ""}`}
-                    onClick={handleCreateComment}
-                    disabled={commentBody.trim() === ""}>
-
-                    <BsSend
-                        style={{
-                            marginLeft: "15px",
-                            fontSize: "45px",
-                            paddingLeft: "12px",
-                            paddingBottom: "7px",
-                        }}
+            {currentUser && (
+                <div className='commentInput-container'>
+                    <input
+                        className='commentInput'
+                        type="text"
+                        placeholder="Write a comment"
+                        value={commentBody}
+                        onChange={(e) => setCommentBody(e.target.value)}
+                        onKeyPress={handleCreateComment}
                     />
-                </button>
-            </div>
+                    <button
+                        className={`createComment-btn ${commentBody.trim() !== "" ? "enabled" : ""}`}
+                        onClick={handleCreateComment}
+                        disabled={commentBody.trim() === ""}>
+
+                        <BsSend
+                            style={{
+                                marginLeft: "15px",
+                                fontSize: "45px",
+                                paddingLeft: "12px",
+                                paddingBottom: "7px",
+                            }}
+                        />
+                    </button>
+                </div>
+            )}
             <h1 className="description">{track.description}</h1>
             <div className='interact-buttons-container'>
                 <div className="track-interact-buttons">
@@ -287,41 +289,43 @@ const TrackShow = (props) => {
                 </div>
                 <hr className='container-line' />
             </div>
-            <div className="commentList mb-5">
-                <div className="commentList-header">
-                    <FaMessage fontSize={"13px"} /><span className='ms-2'>{dispNumComments()}</span>
+            {currentUser && (
+                <div className="commentList mb-5">
+                    <div className="commentList-header">
+                        <FaMessage fontSize={"13px"} /><span className='ms-2'>{dispNumComments()}</span>
+                    </div>
+                    <ul>
+                        {Object.values(comments).map((comment) => {
+                            const { id, body, createdAt, commenterId, username } = comment;
+                            const relativeTime = formatDistanceToNow(createdAt, { addSuffix: true });
+                            const isCurrentUserOwner = currentUser && currentUser.id === commenterId;
+
+                            return (
+                                <div className='commentList-item-container' key={id}>
+                                    <li className="commentList-item p-4 ps-5 pt-3">
+                                        <div className="commentItemInfo pe-2">
+                                            <strong className='commentItemInfo-username pe-2'>{username}</strong>
+                                            <small className='commentItemInfo-time'>{relativeTime}</small>
+                                        </div>
+                                        <div className='d-flex '>
+                                            <p className='commentItemInfo-body pt-1'>{body}</p>
+                                            {isCurrentUserOwner && (
+                                                <div className='trash-bin' style={{ cursor: "pointer", marginLeft: "5px" }}>
+                                                    <MdDeleteOutline
+                                                        style={{ fontSize: "23px" }}
+                                                        onClick={() => handleDeleteComment(id)}
+                                                    />
+                                                </div>
+                                            )}
+                                        </div>
+                                    </li>
+                                </div>
+                            );
+                        })}
+
+                    </ul>
                 </div>
-                <ul>
-                    {Object.values(comments).map((comment) => {
-                        const { id, body, createdAt, commenterId, username } = comment;
-                        const relativeTime = formatDistanceToNow(createdAt, { addSuffix: true });
-                        const isCurrentUserOwner = currentUser && currentUser.id === commenterId;
-
-                        return (
-                            <div className='commentList-item-container' key={id}>
-                                <li className="commentList-item p-4 ps-5 pt-3">
-                                    <div className="commentItemInfo pe-2">
-                                        <strong className='commentItemInfo-username pe-2'>{username}</strong>
-                                        <small className='commentItemInfo-time'>{relativeTime}</small>
-                                    </div>
-                                    <div className='d-flex '>
-                                        <p className='commentItemInfo-body pt-1'>{body}</p>
-                                        {isCurrentUserOwner && (
-                                            <div className='trash-bin' style={{ cursor: "pointer", marginLeft: "5px" }}>
-                                                <MdDeleteOutline
-                                                    style={{ fontSize: "23px" }}
-                                                    onClick={() => handleDeleteComment(id)}
-                                                />
-                                            </div>
-                                        )}
-                                    </div>
-                                </li>
-                            </div>
-                        );
-                    })}
-
-                </ul>
-            </div>
+            )}
         </>
     );
 };
