@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Splash from "../components/splash/splash";
+import Footer from "../components/footer/footer";
 import HeaderContainer from "./header/header_container";
 import TrackIndexContainer from "../components/tracks/track_index_container";
 import TrackShowContainer from "../components/tracks/track_show_container";
@@ -27,6 +28,7 @@ export default () => {
                                 <TrackIndexContainer />
                                 {loggedIn ? null : <Splash />}
                                 <PlayheadContainer />
+                                <Footer />
                             </>
                         }
                     />

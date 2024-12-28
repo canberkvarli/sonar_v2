@@ -88,7 +88,8 @@ class SessionForm extends React.Component {
                         <input type="submit" id="demo-user-button" value="Demo User" onClick={this.handleDemoUser} />
                         <input className="session-form-submit" type="submit" value={this.props.formType} />
                         <br />
-                        <Link to="/" className="gobacklink">Go back</Link>
+
+                        <Link to="/" className='btn btn-info'>Go Back</Link>
                     </form>
                     <div>
                         {this.renderErrors()}
@@ -130,7 +131,9 @@ class SessionForm extends React.Component {
                         <br />
                         <input className="session-form-submit" type="submit" value={this.props.formType} />
                         <br />
-                        <Link to="/" className="gobacklink">Go back</Link>
+                        <Link to="/" className="btn btn-info">
+                            Go Back
+                        </Link>
 
                     </form>
                     <div>
