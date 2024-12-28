@@ -82,7 +82,3 @@ production:
   database: sonar_production
   username: sonar
   password: <%= ENV['SONAR_DATABASE_PASSWORD'] %>
-  port: 5432
-  host: dpg-clbvn7eg1b2c73eqf2t0-a
-  sslmode: require # or disable if SSL is not required
-
