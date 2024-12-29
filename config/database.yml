@@ -82,4 +82,3 @@ production:
   database: sonar_production
   username: sonar
   password: <%= ENV['SONAR_DATABASE_PASSWORD'] %>
-  url: <%= ENV['DATABASE_URL'] %>
