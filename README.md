@@ -1,6 +1,6 @@
 SONAR
 =====
-[Sonar](https://appsonar.herokuapp.com/#/) (currently not avaliable for live) is a web page, clone of SoundCloud built with Ruby on Rails, ReactJS, and Redux. On Sonar, artists are able to upload their tracks for the world to stream, share, and like. 
+[Sonar](https://sonar-v2.onrender.com) is a web application, clone of SoundCloud built with Ruby on Rails, ReactJS, and Redux. On Sonar, artists are able to upload their tracks for the world to stream, share, and like. 
 
 ![Sonar Home Page](app/assets/images/homepage2.png "Sonar Home")
 
