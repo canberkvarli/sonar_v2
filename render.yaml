@@ -2,13 +2,11 @@ databases:
   - name: sonar
     databaseName: sonar_production
     user: sonar
-    plan: free
 
 services:
   - type: web
     name: sonar
     runtime: ruby
-    plan: free
     buildCommand: "./bin/sonar-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
